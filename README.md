@@ -5,7 +5,7 @@ Clone this repository \
 -> modify files       \
 -> push requests
 
-*Node 시작 전에 _config.js_ 파일을 수정 해주세요.*
+*Node 시작 전에 _config.js_ 파일을 최상단 디렉토리 안에 넣어 주셈...*
 
 ```javascript
 ** config.js ** 
