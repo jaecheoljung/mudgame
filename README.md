@@ -1,11 +1,20 @@
-
-
-### START
+# 시작하기
 
 Clone this repository \
 -> npm install        \
 -> modify files       \
--> push requests      \
+-> push requests
+
+*Node 시작 전에 _config.js_ 파일을 수정 해주세요.*
+
+```javascript
+** config.js ** 
+
+module.exports = {
+    secret: 'secret_key',
+    mongoURI: "mongo_uri"
+}
+```
 
 ## 기본스펙
 
