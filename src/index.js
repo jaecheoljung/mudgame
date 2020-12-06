@@ -5,6 +5,7 @@ const crypto = require("crypto");
 
 const { constantManager, mapManager } = require("./datas/Manager");
 const { Player } = require("./models/Player");
+const { secret, mongoURI } = require("../config");
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -13,7 +14,7 @@ app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
 
 mongoose.connect(
-  "mongodb+srv://tester:Z5knBqgfuOqzb2Pu@cluster0.ye4cg.mongodb.net/Game0?retryWrites=true&w=majority",
+  mongoURI,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
