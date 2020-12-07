@@ -6,7 +6,9 @@ async function action (req, res) {
     let event = null;
     if (action === "query") {
       const field = mapManager.getField(req.player.x, req.player.y);
-      return res.send({ player, field });
+      console.log(field);
+      const minimap = mapManager.makeMinimap(req.player.x, req.player.y);
+      return res.send({ player, minimap, field });
     } else if (action === "move") {
       const direction = parseInt(req.body.direction, 0); // 0 북. 1 동 . 2 남. 3 서.
       let x = req.player.x;
@@ -22,6 +24,7 @@ async function action (req, res) {
       } else {
         res.sendStatus(400);
       }
+      
       const field = mapManager.getField(x, y);
       if (!field) res.sendStatus(400);
       player.x = x;
@@ -45,7 +48,7 @@ async function action (req, res) {
       }
   
       await player.save();
-      return res.send({ player, field, event });
+      return res.send({ player, field,  event });
     }
   }
 

@@ -15,11 +15,14 @@
     <div id="game"></div>
     <div id="event_result"></div>
     <div id="control">
-      <button value="1">동</button>
+      
+      <button value="0">북</button> 
+      <button value="1">동</button> 
       <button value="3">서</button>
       <button value="2">남</button>
-      <button value="0">북</button>
+      
     </div>
+    <div id="minimap"></div>
 
   <script>
 
@@ -32,10 +35,12 @@ const sendAction = (action, params = {}) => {
         method: "POST",
         data: `action=${action}&direction=${params.direction}`,
       }).done((req) => {
-        const { player, field, event } = req;
+        const { player, field, minimap, event } = req;
 
         $('#game').text(field.description);
         $('#position').text(`(${field.x},${field.y})`);
+        $('#minimap').text(minimap);
+        
         const x = field.x;
         const y = field.y;
         field.canGo.forEach((canGo, idx) => {
@@ -64,9 +69,7 @@ const sendAction = (action, params = {}) => {
       location.href = "/";
     }
 
-    sendAction("query");
-
-    
+    sendAction("query");    
 
   </script>
   </body>

@@ -16,7 +16,9 @@ app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
 
-mongoose.connect( mongoURI, { useNewUrlParser: true, useUnifiedTopology: true } );
+mongoose.connect( mongoURI, { useNewUrlParser: true, useUnifiedTopology: true } )
+    .then(() => console.log('Successfully connected to mongodb')) // mongodb connection success
+    .catch(e => console.error(e));
 
 app.get("/", (req, res) => {
   res.render("index", { gameName: constantManager.gameName });
@@ -30,4 +32,7 @@ app.post("/signup", signup);
 
 app.post("/action", authentication, action);
 
-app.listen(3000);
+app.listen(3000, () => {
+  console.log(`listening at http://localhost:3000`); // 정상 시작 알림
+})
+
