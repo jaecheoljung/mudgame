@@ -9,7 +9,6 @@
         "canGo": [0, 1, 1, 0 ],
         "events": []
     },
-
     "1": {
         "description": "[0, 1] ",
         "x": 0,
@@ -17,7 +16,6 @@
         "canGo": [1, 1, 1, 0],
         "events": []
     },
-
     "2": {
         "description": "[0, 2]",
         "x": 0,
@@ -29,7 +27,50 @@
         "description": "[0, 3]",
         "x": 0,
         "y": 3,
-        "canGo": [1, 1, 0, 0],
+        "canGo": [1, 1, 1, 0],
+        "events": []
+    },
+    "4": {
+        "description": "[0, 4]",
+        "x": 0,
+        "y": 4,
+        "canGo": [1, 1, 1, 0],
+        "events": []
+    },
+
+    "5": {
+        "description": "[0, 5]",
+        "x": 0,
+        "y": 5,
+        "canGo": [1, 1, 1, 0],
+        "events": []
+    },
+    "6": {
+        "description": "[0, 6]",
+        "x": 0,
+        "y": 6,
+        "canGo": [1, 1, 1, 0],
+        "events": []
+    },
+    "7": {
+        "description": "[0, 7]",
+        "x": 0,
+        "y": 7,
+        "canGo": [1, 1, 1, 0],
+        "events": []
+    },
+    "8": {
+        "description": "[0, 8]",
+        "x": 0,
+        "y": 8,
+        "canGo": [1, 1, 1, 0],
+        "events": []
+    },
+    "9": {
+        "description": "[0, 9]",
+        "x": 0,
+        "y": 9,
+        "canGo": [1, 1, 0, 0 ],
         "events": []
     },
 
@@ -37,28 +78,658 @@
         "description": "[1, 0]",
         "x": 1,
         "y": 0,
-        "canGo": [0, 0, 1, 1 ],
+        "canGo": [0, 1, 1, 1 ],
         "events": []
     },
+
     "11": {
         "description": "[1, 1]",
         "x": 1,
         "y": 1,
-        "canGo": [1, 0, 1, 1 ],
+        "canGo": [1, 1, 1, 1 ],
         "events": []
     },
+
     "12": {
         "description": "[1, 2]",
         "x": 1,
         "y": 2,
-        "canGo": [1, 0, 1, 1 ],
+        "canGo": [1, 1, 1, 1 ],
         "events": []
     },
+
     "13": {
         "description": "[1, 3]",
         "x": 1,
         "y": 3,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "14": {
+        "description": "[1, 4]",
+        "x": 1,
+        "y": 4,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "15": {
+        "description": "[1, 5]",
+        "x": 1,
+        "y": 5,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "16": {
+        "description": "[1, 6]",
+        "x": 1,
+        "y": 6,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "17": {
+        "description": "[1, 7]",
+        "x": 1,
+        "y": 7,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "18": {
+        "description": "[1, 8]",
+        "x": 1,
+        "y": 8,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "19": {
+        "description": "[1, 9]",
+        "x": 1,
+        "y": 9,
+        "canGo": [1, 1, 0, 1 ],
+        "events": []
+    },
+    "20": {
+        "description": "[2, 0]",
+        "x": 2,
+        "y": 0,
+        "canGo": [0, 1, 1, 1 ],
+        "events": []
+    },
+
+    "21": {
+        "description": "[2, 1]",
+        "x": 2,
+        "y": 1,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "22": {
+        "description": "[2, 2]",
+        "x": 2,
+        "y": 2,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "23": {
+        "description": "[2, 3]",
+        "x": 2,
+        "y": 3,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "24": {
+        "description": "[2, 4]",
+        "x": 2,
+        "y": 4,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "25": {
+        "description": "[2, 5]",
+        "x": 2,
+        "y": 5,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "26": {
+        "description": "[2, 6]",
+        "x": 2,
+        "y": 6,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "27": {
+        "description": "[2, 7]",
+        "x": 2,
+        "y": 7,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "28": {
+        "description": "[2, 8]",
+        "x": 2,
+        "y": 8,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "29": {
+        "description": "[2, 9]",
+        "x": 2,
+        "y": 9,
+        "canGo": [1, 1, 0, 1 ],
+        "events": []
+    },
+    "30": {
+        "description": "[3, 0]",
+        "x": 3,
+        "y": 0,
+        "canGo": [0, 1, 1, 1 ],
+        "events": []
+    },
+
+    "31": {
+        "description": "[3, 1]",
+        "x": 3,
+        "y": 1,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "32": {
+        "description": "[3, 2]",
+        "x": 3,
+        "y": 2,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "33": {
+        "description": "[3, 3]",
+        "x": 3,
+        "y": 3,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "34": {
+        "description": "[3, 4]",
+        "x": 3,
+        "y": 4,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "35": {
+        "description": "[3, 5]",
+        "x": 3,
+        "y": 5,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "36": {
+        "description": "[3, 6]",
+        "x": 3,
+        "y": 6,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "37": {
+        "description": "[3, 7]",
+        "x": 3,
+        "y": 7,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "38": {
+        "description": "[3, 8]",
+        "x": 3,
+        "y": 8,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "39": {
+        "description": "[3, 9]",
+        "x": 3,
+        "y": 9,
+        "canGo": [1, 1, 0, 1 ],
+        "events": []
+    },
+    "40": {
+        "description": "[4, 0]",
+        "x": 4,
+        "y": 0,
+        "canGo": [0, 1, 1, 1 ],
+        "events": []
+    },
+
+    "41": {
+        "description": "[4, 1]",
+        "x": 4,
+        "y": 1,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "42": {
+        "description": "[4, 2]",
+        "x": 4,
+        "y": 2,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "43": {
+        "description": "[4, 3]",
+        "x": 4,
+        "y": 3,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "44": {
+        "description": "[4, 4]",
+        "x": 4,
+        "y": 4,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "45": {
+        "description": "[4, 5]",
+        "x": 4,
+        "y": 5,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "46": {
+        "description": "[4, 6]",
+        "x": 4,
+        "y": 6,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "47": {
+        "description": "[4, 7]",
+        "x": 4,
+        "y": 7,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "48": {
+        "description": "[4, 8]",
+        "x": 4,
+        "y": 8,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "49": {
+        "description": "[4, 9]",
+        "x": 4,
+        "y": 9,
+        "canGo": [1, 1, 0, 1 ],
+        "events": []
+    },
+    "50": {
+        "description": "[5, 0]",
+        "x": 5,
+        "y": 0,
+        "canGo": [0, 1, 1, 1 ],
+        "events": []
+    },
+
+    "51": {
+        "description": "[5, 1]",
+        "x": 5,
+        "y": 1,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "52": {
+        "description": "[5, 2]",
+        "x": 5,
+        "y": 2,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "53": {
+        "description": "[5, 3]",
+        "x": 5,
+        "y": 3,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "54": {
+        "description": "[5, 4]",
+        "x": 5,
+        "y": 4,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "55": {
+        "description": "[5, 5]",
+        "x": 5,
+        "y": 5,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "56": {
+        "description": "[5, 6]",
+        "x": 5,
+        "y": 6,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "57": {
+        "description": "[5, 7]",
+        "x": 5,
+        "y": 7,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "58": {
+        "description": "[5, 8]",
+        "x": 5,
+        "y": 8,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "59": {
+        "description": "[5, 9]",
+        "x": 5,
+        "y": 9,
+        "canGo": [1, 1, 0, 1 ],
+        "events": []
+    },
+    "60": {
+        "description": "[6, 0]",
+        "x": 6,
+        "y": 0,
+        "canGo": [0, 1, 1, 1 ],
+        "events": []
+    },
+
+    "61": {
+        "description": "[6, 1]",
+        "x": 6,
+        "y": 1,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "62": {
+        "description": "[6, 2]",
+        "x": 6,
+        "y": 2,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "63": {
+        "description": "[6, 3]",
+        "x": 6,
+        "y": 3,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "64": {
+        "description": "[6, 4]",
+        "x": 6,
+        "y": 4,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "65": {
+        "description": "[6, 5]",
+        "x": 6,
+        "y": 5,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "66": {
+        "description": "[6, 6]",
+        "x": 6,
+        "y": 6,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "67": {
+        "description": "[6, 7]",
+        "x": 6,
+        "y": 7,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "68": {
+        "description": "[6, 8]",
+        "x": 6,
+        "y": 8,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "69": {
+        "description": "[6, 9]",
+        "x": 6,
+        "y": 9,
+        "canGo": [1, 1, 0, 1 ],
+        "events": []
+    },
+    "70": {
+        "description": "[7, 0]",
+        "x": 7,
+        "y": 0,
+        "canGo": [0, 1, 1, 1 ],
+        "events": []
+    },
+
+    "71": {
+        "description": "[7, 1]",
+        "x": 7,
+        "y": 1,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "72": {
+        "description": "[7, 2]",
+        "x": 7,
+        "y": 2,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "73": {
+        "description": "[7, 3]",
+        "x": 7,
+        "y": 3,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "74": {
+        "description": "[7, 4]",
+        "x": 7,
+        "y": 4,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "75": {
+        "description": "[7, 5]",
+        "x": 7,
+        "y": 5,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "76": {
+        "description": "[7, 6]",
+        "x": 7,
+        "y": 6,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "77": {
+        "description": "[7, 7]",
+        "x": 7,
+        "y": 7,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "78": {
+        "description": "[7, 8]",
+        "x": 7,
+        "y": 8,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "79": {
+        "description": "[7, 9]",
+        "x": 7,
+        "y": 9,
+        "canGo": [1, 1, 0, 1 ],
+        "events": []
+    },
+    "80": {
+        "description": "[8, 0]",
+        "x": 8,
+        "y": 0,
+        "canGo": [0, 1, 1, 1 ],
+        "events": []
+    },
+
+    "81": {
+        "description": "[8, 1]",
+        "x": 8,
+        "y": 1,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "82": {
+        "description": "[8, 2]",
+        "x": 8,
+        "y": 2,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+
+    "83": {
+        "description": "[8, 3]",
+        "x": 8,
+        "y": 3,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "84": {
+        "description": "[8, 4]",
+        "x": 8,
+        "y": 4,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "85": {
+        "description": "[8, 5]",
+        "x": 8,
+        "y": 5,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "86": {
+        "description": "[8, 6]",
+        "x": 8,
+        "y": 6,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "87": {
+        "description": "[8, 7]",
+        "x": 8,
+        "y": 7,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "88": {
+        "description": "[8, 8]",
+        "x": 8,
+        "y": 8,
+        "canGo": [1, 1, 1, 1 ],
+        "events": []
+    },
+    "89": {
+        "description": "[8, 9]",
+        "x": 8,
+        "y": 9,
+        "canGo": [1, 1, 0, 1 ],
+        "events": []
+    },
+    "90": {
+        "description": "[9, 0]",
+        "x": 9,
+        "y": 0,
+        "canGo": [0, 0, 1, 1 ],
+        "events": []
+    },
+
+    "91": {
+        "description": "[9, 1]",
+        "x": 9,
+        "y": 1,
+        "canGo": [1, 0, 1, 1 ],
+        "events": []
+    },
+
+    "92": {
+        "description": "[9, 2]",
+        "x": 9,
+        "y": 2,
+        "canGo": [1, 0, 1, 1 ],
+        "events": []
+    },
+
+    "93": {
+        "description": "[9, 3]",
+        "x": 9,
+        "y": 3,
+        "canGo": [1, 0, 1, 1 ],
+        "events": []
+    },
+    "94": {
+        "description": "[9, 4]",
+        "x": 9,
+        "y": 4,
+        "canGo": [1, 0, 1, 1 ],
+        "events": []
+    },
+    "95": {
+        "description": "[9, 5]",
+        "x": 9,
+        "y": 5,
+        "canGo": [1, 0, 1, 1 ],
+        "events": []
+    },
+    "96": {
+        "description": "[9, 6]",
+        "x": 9,
+        "y": 6,
+        "canGo": [1, 0, 1, 1 ],
+        "events": []
+    },
+    "97": {
+        "description": "[9, 7]",
+        "x": 9,
+        "y": 7,
+        "canGo": [1, 0, 1, 1 ],
+        "events": []
+    },
+    "98": {
+        "description": "[9, 8]",
+        "x": 9,
+        "y": 8,
+        "canGo": [1, 0, 1, 1 ],
+        "events": []
+    },
+    "99": {
+        "description": "[9, 9]",
+        "x": 9,
+        "y": 9,
         "canGo": [1, 0, 0, 1 ],
         "events": []
     }
+
 }

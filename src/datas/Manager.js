@@ -13,7 +13,9 @@ mapManager = {
         return map[fieldName];
     },
     makeMinimap(x,y){
-        let mapText = '□□□□□□□□□□ \n\n '.repeat(y)+'□'.repeat(x)+'■'+'□'.repeat(map.xmax-x-1)+'\n'+'□□□□□□□□□□ \n'.repeat(map.ymax-y-1);
+        const blankline = '□□□□□□□□□□'+'\n';
+        const currentline = '□'.repeat(x)+'■'+'□'.repeat(map.xmax-x-1)+'\n';
+        let mapText = blankline.repeat(y)+currentline+blankline.repeat(map.ymax-y-1);
         return mapText;
     }
 }

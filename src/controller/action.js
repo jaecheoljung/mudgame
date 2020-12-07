@@ -6,7 +6,6 @@ async function action (req, res) {
     let event = null;
     if (action === "query") {
       const field = mapManager.getField(req.player.x, req.player.y);
-      console.log(field);
       const minimap = mapManager.makeMinimap(req.player.x, req.player.y);
       return res.send({ player, minimap, field });
     } else if (action === "move") {
@@ -46,9 +45,9 @@ async function action (req, res) {
           player.HP = Math.min(player.maxHP, player.HP + 1);
         }
       }
-  
+      const minimap = await mapManager.makeMinimap(req.player.x, req.player.y);
       await player.save();
-      return res.send({ player, field,  event });
+      return res.send({ player, field, minimap,  event });
     }
   }
 

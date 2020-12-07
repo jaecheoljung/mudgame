@@ -22,7 +22,7 @@
       <button value="2">남</button>
       
     </div>
-    <div id="minimap"></div>
+    <div id="minimap" style="white-space: pre-line"></div>
 
   <script>
 
@@ -40,6 +40,7 @@ const sendAction = (action, params = {}) => {
         $('#game').text(field.description);
         $('#position').text(`(${field.x},${field.y})`);
         $('#minimap').text(minimap);
+        
         
         const x = field.x;
         const y = field.y;
