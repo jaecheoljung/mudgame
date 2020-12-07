@@ -8,21 +8,23 @@
 
   <body>
     <div id="position"></div>
-
-    <div id="status">
-        HP: <span id="HP"> 5 / 5</span>
+    <br>
+    <div id="status" style="border: 1px solid black; display:inline-block; padding : 10px;">
+        HP: <span id="HP"> 5 / 5</span><br>
+        STR: <span id="STR"> 0</span><br>
+        DEF: <span id="DEF"> 0</span>
     </div>
+  <br><br>
     <div id="game"></div>
     <div id="event_result"></div>
     <div id="control">
-      
       <button value="0">북</button> 
       <button value="1">동</button> 
       <button value="3">서</button>
       <button value="2">남</button>
-      
     </div>
-    <div id="minimap" style="white-space: pre-line"></div>
+    <br>
+    <div id="minimap" style="white-space: pre-line; border: 1px solid black; display:inline-block; padding : 10px;"></div>
 
   <script>
 
@@ -38,9 +40,8 @@ const sendAction = (action, params = {}) => {
         const { player, field, minimap, event } = req;
 
         $('#game').text(field.description);
-        $('#position').text(`(${field.x},${field.y})`);
+        $('#position').text(`(${field.x},${field.y})에 위치한 상태`);
         $('#minimap').text(minimap);
-        
         
         const x = field.x;
         const y = field.y;
@@ -61,7 +62,9 @@ const sendAction = (action, params = {}) => {
           $('#event_result').text("아무일도 일어나지 않았다.");
         }
 
-        $('#HP').text(`${player.HP} / ${player.maxHP}`)
+        $('#HP').text(`${player.HP} / ${player.maxHP}`);
+        $('#STR').text(`${player.str}`);
+        $('#DEF').text(`${player.def}`);
       });
 
     } 

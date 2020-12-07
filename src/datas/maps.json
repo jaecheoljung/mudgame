@@ -3,7 +3,7 @@
     "ymax": 10,
 
     "0": {
-        "description": "[0, 0] start",
+        "description": "[0, 0] Start",
         "x": 0,
         "y": 0,
         "canGo": [0, 1, 1, 0 ],
@@ -725,7 +725,7 @@
         "events": []
     },
     "99": {
-        "description": "[9, 9]",
+        "description": "[9, 9] End Point",
         "x": 9,
         "y": 9,
         "canGo": [1, 0, 0, 1 ],
