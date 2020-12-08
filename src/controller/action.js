@@ -24,7 +24,7 @@ async function action (req, res) {
         res.sendStatus(400);
       }
       
-      const field = mapManager.getField(x, y);
+      let field = mapManager.getField(x, y);
       if (!field) res.sendStatus(400);
       player.x = x;
       player.y = y;
@@ -39,23 +39,23 @@ async function action (req, res) {
   
           event = { description: "늑대와 마주쳐 싸움을 벌였다." };
           player.incrementHP(-1);
+          if(player.HP<=0){ // 사망시 경험치, 좌표 초기화
+            player.death();
+            field = mapManager.getField(player.x, player.y);
+          }
         } else if (_event.type === "item") {
           event = { description: "포션을 획득해 체력을 회복했다." };
           player.incrementHP(1);
           player.HP = Math.min(player.maxHP, player.HP + 1);
         }
       }
-      //player.incrementHP(1);
-      player.incrementEXP(30);
-      
+       
+      player.incrementHP(1);
       const minimap = await mapManager.makeMinimap(req.player.x, req.player.y);
       await player.save();
       return res.send({ player, field, minimap,  event });
     }
   }
-
-  
-
 
   module.exports = {
       action
