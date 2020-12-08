@@ -16,6 +16,10 @@
         STR: <span id="STR"> 0</span><br>
         DEF: <span id="DEF"> 0</span>
     </div>
+    <div style="display: inline-block; border:1px solid black; padding:10px; vertical-align: top;">
+      [Inventory] 
+      <div id="inventory" style="white-space: pre-line;"></div>
+    </div>
   <br><br>
     <div id="game"></div>
     <div id="event_result"></div>
@@ -27,7 +31,7 @@
     </div>
     <br>
     <div id="minimap" style="white-space: pre-line; border: 1px solid black; display:inline-block; padding : 10px;"></div>
-
+    
   <script>
 
 const sendAction = (action, params = {}) => {
@@ -39,11 +43,12 @@ const sendAction = (action, params = {}) => {
         method: "POST",
         data: `action=${action}&direction=${params.direction}`,
       }).done((req) => {
-        const { player, field, minimap, event } = req;
+        const { player, field, minimap, inventory, event } = req;
 
         $('#game').text(field.description);
         $('#position').text(`(${field.x},${field.y})에 위치한 상태`);
         $('#minimap').text(minimap);
+        $('#inventory').text(inventory);
         
         const x = field.x;
         const y = field.y;

@@ -1,4 +1,5 @@
-const { constantManager, mapManager } = require("../datas/Manager");
+const { constantManager, mapManager, inventoryManager } = require("../datas/Manager");
+const item = require('../datas/items.json');
 
 async function action (req, res) {
     const { action } = req.body;
@@ -7,7 +8,10 @@ async function action (req, res) {
     if (action === "query") {
       const field = mapManager.getField(req.player.x, req.player.y);
       const minimap = mapManager.makeMinimap(req.player.x, req.player.y);
-      return res.send({ player, minimap, field });
+      let playerItems = [];
+      player.items.forEach(element => playerItems.push(item[element].name));
+      inventory=inventoryManager.alignInventory(playerItems);
+      return res.send({ player, minimap, inventory, field });
     } else if (action === "move") {
       const direction = parseInt(req.body.direction, 0); // 0 북. 1 동 . 2 남. 3 서.
       let x = req.player.x;
@@ -50,10 +54,15 @@ async function action (req, res) {
         }
       }
        
-      player.incrementHP(1);
+      // player.getItem("1"); //"1"번 아이템을 획득하여 사용자 인벤토리에 추가
+
       const minimap = await mapManager.makeMinimap(req.player.x, req.player.y);
+      let playerItems = [];
+      player.items.forEach(element => playerItems.push(item[element].name));
+      inventory=inventoryManager.alignInventory(playerItems);
+
       await player.save();
-      return res.send({ player, field, minimap,  event });
+      return res.send({ player, field, minimap, inventory, event });
     }
   }
 

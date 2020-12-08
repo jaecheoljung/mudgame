@@ -1,6 +1,7 @@
 const constant = require('./constants.json');
 const map = require('./maps.json');
-
+const item = require('./items.json');
+const monster = require('./monsters.json');
 
 constantManager = {
     gameName : constant.gameName,
@@ -20,7 +21,18 @@ mapManager = {
     }
 }
 
+inventoryManager ={
+    alignInventory(invenArray){
+        let list='';
+        invenArray.forEach(element => {
+            list= list+element+'\n';
+        });
+        return list;
+    }
+}
+
 module.exports = {
     constantManager,
-    mapManager
+    mapManager,
+    inventoryManager
 };

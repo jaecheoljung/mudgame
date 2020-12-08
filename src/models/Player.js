@@ -11,10 +11,14 @@ const schema = new Schema({
 
   maxHP: { type: Number, default: 10 },
   HP: { type: Number, default: 10 },
+
   str: { type: Number, default: 5 },
   def: { type: Number, default: 5 },
+
   x: { type: Number, default: 0 },
-  y: { type: Number, default: 0 }
+  y: { type: Number, default: 0 },
+
+  items:[String]
 });
 
 schema.methods.incrementHP = function (val) {
@@ -38,6 +42,12 @@ schema.methods.incrementEXP = function (val) {
     this.exp = exp;
   }
 };
+
+schema.methods.getItem = function(itemId){
+  const itemList = this.items;
+  itemList.push(itemId);
+  this.items=itemList;
+}
 
 const Player = mongoose.model("Player", schema);
 
