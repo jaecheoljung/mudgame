@@ -10,6 +10,8 @@
     <div id="position"></div>
     <br>
     <div id="status" style="border: 1px solid black; display:inline-block; padding : 10px;">
+        Level: <span id="LEVEL"> 0</span><br>
+        Exp: <span id="EXP"> 0 / 0</span><br>
         HP: <span id="HP"> 5 / 5</span><br>
         STR: <span id="STR"> 0</span><br>
         DEF: <span id="DEF"> 0</span>
@@ -62,6 +64,8 @@ const sendAction = (action, params = {}) => {
           $('#event_result').text("아무일도 일어나지 않았다.");
         }
 
+        $('#LEVEL').text(`${player.level}`);
+        $('#EXP').text(`${player.exp} / ${player.maxExp}`);
         $('#HP').text(`${player.HP} / ${player.maxHP}`);
         $('#STR').text(`${player.str}`);
         $('#DEF').text(`${player.def}`);

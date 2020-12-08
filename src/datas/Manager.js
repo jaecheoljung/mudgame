@@ -20,7 +20,6 @@ mapManager = {
     }
 }
 
-
 module.exports = {
     constantManager,
     mapManager

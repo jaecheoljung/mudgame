@@ -45,11 +45,16 @@ async function action (req, res) {
           player.HP = Math.min(player.maxHP, player.HP + 1);
         }
       }
+      //player.incrementHP(1);
+      player.incrementEXP(30);
+      
       const minimap = await mapManager.makeMinimap(req.player.x, req.player.y);
       await player.save();
       return res.send({ player, field, minimap,  event });
     }
   }
+
+  
 
 
   module.exports = {
