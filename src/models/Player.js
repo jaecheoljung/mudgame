@@ -27,7 +27,7 @@ schema.methods.incrementHP = function (val) {
 };
 
 schema.methods.death = function () {
-  this.HP = 0;
+  this.HP = 10;
   this.exp = 0;
   this.x = 0;
   this.y = 0;
@@ -45,8 +45,12 @@ schema.methods.incrementEXP = function (val) {
 
 schema.methods.getItem = function(itemId){
   const itemList = this.items;
+  if (itemList.find(x => x === itemId)) {
+    return false;
+  }
   itemList.push(itemId);
   this.items=itemList;
+  return true;
 }
 
 const Player = mongoose.model("Player", schema);

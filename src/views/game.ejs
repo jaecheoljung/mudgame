@@ -31,7 +31,9 @@
     </div>
     <br>
     <div id="minimap" style="white-space: pre-line; border: 1px solid black; display:inline-block; padding : 10px;"></div>
-    
+    <br>
+    <br>
+    <button id="reset">Go to front</button>
   <script>
 
 const sendAction = (action, params = {}) => {
@@ -49,7 +51,12 @@ const sendAction = (action, params = {}) => {
         $('#position').text(`(${field.x},${field.y})에 위치한 상태`);
         $('#minimap').text(minimap);
         $('#inventory').text(inventory);
-        
+        $('#LEVEL').text(`${player.level}`);
+        $('#EXP').text(`${player.exp} / ${player.maxExp}`);
+        $('#HP').text(`${player.HP} / ${player.maxHP}`);
+        $('#STR').text(`${player.str}`);
+        $('#DEF').text(`${player.def}`);
+
         const x = field.x;
         const y = field.y;
         field.canGo.forEach((canGo, idx) => {
@@ -62,27 +69,26 @@ const sendAction = (action, params = {}) => {
             });
           }
         })
-
         // if (event) {
         //   $('#event_result').text(event.description);
         // } else {
         //   $('#event_result').text("아무일도 일어나지 않았다.");
         // }
-
-        $('#LEVEL').text(`${player.level}`);
-        $('#EXP').text(`${player.exp} / ${player.maxExp}`);
-        $('#HP').text(`${player.HP} / ${player.maxHP}`);
-        $('#STR').text(`${player.str}`);
-        $('#DEF').text(`${player.def}`);
       });
+}
 
-    } 
-    const key = localStorage.getItem('_key');
-    if (!key) {
-      location.href = "/";
-    }
+const reset = $('#reset');
+reset.bind('click', function () {
+  localStorage.removeItem('_key');
+  location.href = "/";
+})
 
-    sendAction("query");    
+const key = localStorage.getItem('_key');
+if (!key) {
+  location.href = "/";
+}
+
+sendAction("query");    
 
   </script>
   </body>

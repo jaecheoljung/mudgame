@@ -2,80 +2,60 @@ const { constantManager, mapManager, inventoryManager, monsterManager, itemManag
 const item = require('../datas/items.json');
 const e = require("express");
 
+
+function _draw (player) {
+  const field = mapManager.getField(player.x, player.y);
+  const minimap = mapManager.makeMinimap(player.x, player.y);
+  const inventory = inventoryManager.alignInventory(player.items);
+  return { player, minimap, inventory, field };
+}
+
 async function action (req, res) {
     const { action } = req.body;
     const player = req.player;
-    let event = null;
+    
     if (action === "query") {
-      const field = mapManager.getField(req.player.x, req.player.y);
-      const minimap = mapManager.makeMinimap(req.player.x, req.player.y);
-      let playerItems = [];
-      player.items.forEach(element => playerItems.push(item[element].name));
-      inventory=inventoryManager.alignInventory(playerItems);
-      return res.send({ player, minimap, inventory, field });
-    } else if (action === "move") {
-      const direction = parseInt(req.body.direction, 0); // 0 북. 1 동 . 2 남. 3 서.
-      let x = req.player.x;
-      let y = req.player.y;
-      if (direction === 0) {
-        y -= 1;
-      } else if (direction === 1) { 
-        x += 1;
-      } else if (direction === 2) {
-        y += 1;
-      } else if (direction === 3) {
-        x -= 1;
-      } else {
-        res.sendStatus(400);
-      }
-      
-      let field = mapManager.getField(x, y);
-      if (!field) res.sendStatus(400);
-      player.x = x;
-      player.y = y;
-      
-      const events = field.events;
-      let _event = {};
-  
-      if (events.length > 0) {
-        if (parseFloat(events[0]) > Math.random()) _event = events[1];
-        else _event = events[2];
-        if (_event.type === "battle") {
-          // TODO: 이벤트 별로 events.json 에서 불러와 이벤트 처리
+      return res.send(_draw(player));
+    }
+    
+    if (action === "move") {
+      const d = req.body.direction;
+      const move = {
+        "0": [0, -1],
+        "1": [1, 0],
+        "2": [0, 1],
+        "3": [-1, 0]
+      };
+      const mx = move[d][0];
+      const my = move[d][1];
+      player.x += mx;
+      player.y += my;
 
-        } else if (_event.type === "item") {
+      const field = mapManager.getField(player.x, player.y);
+      const events = field.events;
+
+      if (events.length > 0) {
+        let _event = parseFloat(events[0]) > Math.random() ? events[1] : events[2];
+        
+        if (_event.type === "battle") {
+        }
+        
+        if (_event.type === "item") {
           const itemJson = itemManager.getItem();
           const itemId = _event.item;
-          let item = {};
-          itemJson.forEach((e) => {
-            if(e.id === itemId) item = e;
-          });
-          if (item.hasOwnProperty('str') === true) {
-            player.getItem(item.name)
-            player.str += item.str
-            field.description += ` / ${item.name}을 획득해 str을 ${item.str}만큼 회복했다.`
-          } else if (item.hasOwnProperty('def') === true) {
-            player.def += item.def;
-            field.description += ` / ${item.name}을 획득해 def을 ${item.def}만큼 회복했다.`
-          };
-        }
+          const item = itemJson.find(x => x.id === itemId);
+          const prop = item.hasOwnProperty('str')? 'str' : 'def';
+          if (player.getItem(item.name)) {
+            player[prop] += item[prop];
+            field.description += ` / ${item.name}을 획득해 ${prop}이 ${item[prop]}만큼 증가했다.`
+          }
+          else {
+            field.description += ` / ${item.name}가 이미 존재한다.`  
+          }
+        };
       }
-      
-      if(player.HP<=0){ // 사망시 경험치, 좌표 초기화
-        player.death();
-        field = mapManager.getField(player.x, player.y);
-      }
-       
-      // player.getItem("1"); //"1"번 아이템을 획득하여 사용자 인벤토리에 추가
-      const minimap = await mapManager.makeMinimap(req.player.x, req.player.y);
-      let playerItems = [];
-      // player.items.forEach(element => playerItems.push(item[element].name));
-      // itemId가 아니라 애초에 itemname을 받도록 수정하여, 아래와 같이 수정했습니다!
-      player.items.forEach(element => playerItems.push(element));
-      inventory=inventoryManager.alignInventory(playerItems);
-
       await player.save();
-      return res.send({ player, field, minimap, inventory, event });
+      return res.send(_draw(player));
     }
   }
 
