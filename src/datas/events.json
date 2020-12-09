@@ -1,0 +1,62 @@
+[
+    [
+      {
+        "type": "battle",
+        "id": 1,
+        "monster": "드래곤",
+        "description": "드래곤과 마주쳐 싸움을 벌였다."
+      },
+      {
+        "type": "battle",
+        "id": 2,
+        "monster": "요괴",
+        "description": "요괴와 마주쳐 싸움을 벌였다."
+      },
+      {
+        "type": "battle",
+        "id": 3,
+        "monster": "괴수",
+        "description": "괴수와 마주쳐 싸움을 벌였다."
+      },
+      {
+        "type": "battle",
+        "id": 4,
+        "monster": "잡몹",
+        "description": "잡몹과 마주쳐 싸움을 벌였다."
+      },
+      {
+        "type": "battle",
+        "id": 5,
+        "monster": "휴머노이드 몬스터",
+        "description": "휴머노이드 몬스터와 마주쳐 싸움을 벌였다."
+      }
+    ],
+    [
+      {
+        "type": "item",
+        "item": "장갑",
+        "description": "장갑을 획득해 str을 1 회복했다."
+      },
+      {
+        "type": "item",
+        "item": "망토",
+        "description": "망토를 획득해 str을 2 회복했다."
+      },
+      {
+        "type": "item",
+        "item": "갑옷",
+        "description": "갑옷을 획득해 str을 3 회복했다."
+      },
+      {
+        "type": "item",
+        "item": "투구",
+        "description": "천갑옷을 획득해 def을 1 회복했다."
+      },
+      {
+        "type": "item",
+        "item": "방패",
+        "description": "방패를 획득해 def을 2 회복했다."
+      }
+    ]
+  ]
+  

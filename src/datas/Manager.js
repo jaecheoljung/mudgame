@@ -3,12 +3,12 @@ const map = require('./maps.json');
 const item = require('./items.json');
 const monster = require('./monsters.json');
 
-constantManager = {
+const constantManager = {
     gameName : constant.gameName,
 
 }
 
-mapManager = {
+const mapManager = {
     getField(x, y) {
         const fieldName = String(parseInt(x)*map.xmax + parseInt(y));
         return map[fieldName];
@@ -21,7 +21,7 @@ mapManager = {
     }
 }
 
-inventoryManager ={
+const inventoryManager ={
     alignInventory(invenArray){
         let list='';
         invenArray.forEach(element => {
@@ -31,8 +31,18 @@ inventoryManager ={
     }
 }
 
+const itemManager = {
+
+}
+
+const monsterManager = {
+
+}
+
 module.exports = {
     constantManager,
     mapManager,
-    inventoryManager
+    inventoryManager,
+    itemManager,
+    monsterManager,
 };

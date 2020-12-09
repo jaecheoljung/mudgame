@@ -7,7 +7,10 @@ async function signup(req, res) {
     const { name } = req.body;
   
     if (await Player.exists({ name })) {
-      return res.status(400).send({ error: "Player already exists" });
+      // const existplayer = await Player.findOne({ name });
+      // const existkey = existplayer.key
+      // return res.send({ existkey });
+      return res.status(400).send({error: 'Player already exists'});
     }
   
     const player = new Player({

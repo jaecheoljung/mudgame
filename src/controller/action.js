@@ -1,4 +1,4 @@
-const { constantManager, mapManager, inventoryManager } = require("../datas/Manager");
+const { constantManager, mapManager, inventoryManager, eventManager, monsterManager, itemManager } = require("../datas/Manager");
 const item = require('../datas/items.json');
 
 async function action (req, res) {
@@ -40,11 +40,10 @@ async function action (req, res) {
         const _event = events[0];
         if (_event.type === "battle") {
           // TODO: 이벤트 별로 events.json 에서 불러와 이벤트 처리
-  
-          event = { description: "늑대와 마주쳐 싸움을 벌였다." };
-          player.incrementHP(-1);
-          
+
         } else if (_event.type === "item") {
+
+          
           event = { description: "포션을 획득해 체력을 회복했다." };
           player.incrementHP(1);
           player.HP = Math.min(player.maxHP, player.HP + 1);
