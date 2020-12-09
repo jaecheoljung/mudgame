@@ -1,5 +1,6 @@
-const { constantManager, mapManager, inventoryManager, eventManager, monsterManager, itemManager } = require("../datas/Manager");
+const { constantManager, mapManager, inventoryManager, monsterManager, itemManager } = require("../datas/Manager");
 const item = require('../datas/items.json');
+const e = require("express");
 
 async function action (req, res) {
     const { action } = req.body;
@@ -32,24 +33,33 @@ async function action (req, res) {
       if (!field) res.sendStatus(400);
       player.x = x;
       player.y = y;
-  
+      
       const events = field.events;
+      let _event = {};
   
       if (events.length > 0) {
-        // TODO : 확률별로 이벤트 발생하도록 변경
-        const _event = events[0];
+        console.log(events)
+        if (parseFloat(events[0]) > Math.random()) _event = events[1];
+        else _event = events[2];
         if (_event.type === "battle") {
           // TODO: 이벤트 별로 events.json 에서 불러와 이벤트 처리
 
         } else if (_event.type === "item") {
-
-          
-          event = { description: "포션을 획득해 체력을 회복했다." };
-          player.incrementHP(1);
-          player.HP = Math.min(player.maxHP, player.HP + 1);
+          const itemJson = itemManager.getItem();
+          const itemId = _event.item;
+          let item = {};
+          itemJson.forEach((e) => {
+            if(e.id === itemId) item = e;
+          });
+          if (item.hasOwnProperty('str') === true) {
+            player.str += item.str
+            field.description += ` / ${item.name}을 획득해 str을 ${item.str}만큼 회복했다.`
+          } else if (item.hasOwnProperty('def') === true) {
+            player.def += item.def;
+            field.description += ` / ${item.name}을 획득해 def을 ${item.def}만큼 회복했다.`
+          };
         }
       }
-      
       
       if(player.HP<=0){ // 사망시 경험치, 좌표 초기화
         player.death();
@@ -57,7 +67,6 @@ async function action (req, res) {
       }
        
       // player.getItem("1"); //"1"번 아이템을 획득하여 사용자 인벤토리에 추가
-
       const minimap = await mapManager.makeMinimap(req.player.x, req.player.y);
       let playerItems = [];
       player.items.forEach(element => playerItems.push(item[element].name));

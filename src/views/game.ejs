@@ -63,11 +63,11 @@ const sendAction = (action, params = {}) => {
           }
         })
 
-        if (event) {
-          $('#event_result').text(event.description);
-        } else {
-          $('#event_result').text("아무일도 일어나지 않았다.");
-        }
+        // if (event) {
+        //   $('#event_result').text(event.description);
+        // } else {
+        //   $('#event_result').text("아무일도 일어나지 않았다.");
+        // }
 
         $('#LEVEL').text(`${player.level}`);
         $('#EXP').text(`${player.exp} / ${player.maxExp}`);

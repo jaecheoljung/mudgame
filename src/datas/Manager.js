@@ -32,7 +32,9 @@ const inventoryManager ={
 }
 
 const itemManager = {
-
+    getItem() {
+        return item;
+    }
 }
 
 const monsterManager = {
