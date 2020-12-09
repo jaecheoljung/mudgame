@@ -38,7 +38,6 @@ async function action (req, res) {
       let _event = {};
   
       if (events.length > 0) {
-        console.log(events)
         if (parseFloat(events[0]) > Math.random()) _event = events[1];
         else _event = events[2];
         if (_event.type === "battle") {
@@ -52,6 +51,7 @@ async function action (req, res) {
             if(e.id === itemId) item = e;
           });
           if (item.hasOwnProperty('str') === true) {
+            player.getItem(item.name)
             player.str += item.str
             field.description += ` / ${item.name}을 획득해 str을 ${item.str}만큼 회복했다.`
           } else if (item.hasOwnProperty('def') === true) {
@@ -69,7 +69,9 @@ async function action (req, res) {
       // player.getItem("1"); //"1"번 아이템을 획득하여 사용자 인벤토리에 추가
       const minimap = await mapManager.makeMinimap(req.player.x, req.player.y);
       let playerItems = [];
-      player.items.forEach(element => playerItems.push(item[element].name));
+      // player.items.forEach(element => playerItems.push(item[element].name));
+      // itemId가 아니라 애초에 itemname을 받도록 수정하여, 아래와 같이 수정했습니다!
+      player.items.forEach(element => playerItems.push(element));
       inventory=inventoryManager.alignInventory(playerItems);
 
       await player.save();
