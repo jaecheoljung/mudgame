@@ -5,24 +5,25 @@
     </head>
   <body>
     <div class="container-fluid">
+      <div class="row justify-content-md-center align-items-center text-center"  style="background-color:darkseagreen;">
+        <h1>
+          {학사} 과정을 무사히 끝마치자.
+        </h1>
+      </div>
       <div class="row justify-content-md-center align-items-center text-center">
-        <div class="col-lg-2">
-          <p>
-            <div id="game"></div>
-            <div id="event_result"></div>
-            <div id="control"></div>      
-          </p>
+        <div class="col-lg-2" style="height: 10em; background-color: burlywood;">
+          <div id="game"></div>
+          <div id="event_result"></div>
+          <div id="control"></div>      
         </div>
         <div class="col-md-1">
           <button type="button" class="btn btn-success" value="0">
             북
           </button>
         </div>
-        <div class="col-lg-2">
-          <p>
-            [Inventory] 
-            <div id="inventory" style="white-space: pre-line;"></div>
-          </p>
+        <div class="col-lg-2"  style="height: 10em; background-color: burlywood;">
+          [Inventory] 
+          <div id="inventory" style="white-space: pre-line;"></div>
         </div>
       </div>
       <div class="row justify-content-md-center align-items-center text-center">
@@ -43,7 +44,7 @@
         </div>
       </div>
       <div class="row justify-content-md-center align-items-center text-center">
-        <div class="col-lg-2">
+        <div class="col-lg-2"  style="height: 10em; background-color: burlywood;">
           <p>
             Level: <span id="LEVEL"> 0</span><br>
             Exp: <span id="EXP"> 0 / 0</span><br>
@@ -57,13 +58,28 @@
             남
           </button>
         </div>
-        <div class="col-lg-2">
-          <p>
-            <button class="btn btn-danger" id="reset">Go to front</button></p>
+        <div class="col-lg-2" style="height: 10em; background-color: burlywood;">
+          [Status]
+          <br>
+          "전투 중 입니다."
         </div>
       </div>
     </div>
-
+      <div class="row justify-content-md-center align-items-center text-center"  style="background-color:darkseagreen;">
+        <div class="col-md-2">
+          <button class="btn btn-secondary" id="reroll">능력치재설정</button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-secondary" id="hit">공격하기</button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-secondary" id="run">도망가기</button>
+        </div>
+        <div class="col-lg-2">
+          <button class="btn btn-danger" id="reset">Go to front</button>
+        </div>
+      </div>
+    </div>
   <script>
 
 const sendAction = (action, params = {}) => {
