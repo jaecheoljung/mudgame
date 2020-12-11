@@ -7,61 +7,47 @@
     <div class="container-fluid">
       <div class="row justify-content-md-center align-items-center text-center"  style="background-color:darkseagreen;">
         <h1>
-          {학사} 과정을 무사히 끝마치자.
+          <div id="title"></div> 과정을 무사히 끝마치자.
         </h1>
       </div>
       <div class="row justify-content-md-center align-items-center text-center">
         <div class="col-lg-2" style="height: 10em; background-color: burlywood;">
-          <div id="game"></div>
-          <div id="event_result"></div>
-          <div id="control"></div>      
+          [Event]<br>
+          <div id="event"></div>
         </div>
         <div class="col-md-1">
-          <button type="button" class="btn btn-success" value="0">
-            북
-          </button>
+          <button type="button" class="btn btn-success" value="0">N</button>
         </div>
         <div class="col-lg-2"  style="height: 10em; background-color: burlywood;">
-          [Inventory] 
-          <div id="inventory" style="white-space: pre-line;"></div>
+          [Inventory]
+          <div id="inventory"></div>
         </div>
       </div>
       <div class="row justify-content-md-center align-items-center text-center">
         <div class="col-md-1">
-          <button type="button" class="btn btn-success" value="3">
-            서
-          </button>
+          <button type="button" class="btn btn-success" value="3">W</button>
         </div>
         <div class="col-md-auto">
-          <p>
-            <div id="minimap" style="white-space: pre-line; border: 1px solid black; display:inline-block; padding : 10px;"></div>
-          </p>
+          <div id="minimap" style="white-space: pre-line; border: 1px solid black; display:inline-block; padding : 10px;"></div>
         </div>
         <div class="col-md-1">
-          <button type="button" class="btn btn-success" value="1">
-            동
-          </button>
+          <button type="button" class="btn btn-success" value="1">E</button>
         </div>
       </div>
       <div class="row justify-content-md-center align-items-center text-center">
         <div class="col-lg-2"  style="height: 10em; background-color: burlywood;">
-          <p>
-            Level: <span id="LEVEL"> 0</span><br>
-            Exp: <span id="EXP"> 0 / 0</span><br>
-            HP: <span id="HP"> 5 / 5</span><br>
-            STR: <span id="STR"> 0</span><br>
-            DEF: <span id="DEF"> 0</span>    
-          </p>
+          Level: <span id="LEVEL"> 0</span><br>
+          Exp: <span id="EXP"> 0 / 0</span><br>
+          HP: <span id="HP"> 5 / 5</span><br>
+          STR: <span id="STR"> 0</span><br>
+          INT: <span id="INT"> 0</span>
         </div>
         <div class="col-md-1">
-          <button type="button" class="btn btn-success" value="2">
-            남
-          </button>
+          <button type="button" class="btn btn-success" value="2">S</button>
         </div>
         <div class="col-lg-2" style="height: 10em; background-color: burlywood;">
-          [Status]
-          <br>
-          "전투 중 입니다."
+          [System]<br>
+          <div id="system"></div>
         </div>
       </div>
     </div>
@@ -91,35 +77,17 @@ const sendAction = (action, params = {}) => {
         method: "POST",
         data: `action=${action}&direction=${params.direction}`,
       }).done((req) => {
-        const { player, field, minimap, inventory, event } = req;
-
-        $('#game').text(field.description);
-        $('#position').text(`(${field.x},${field.y})에 위치한 상태`);
+        const { player, minimap, inventory, event, system } = req;
+        $('#title').text(player.stage < 1? "학사" : (player.stage < 2? "석사" : "박사"));
+        $('#event').text(event);
         $('#minimap').text(minimap);
         $('#inventory').text(inventory);
-        $('#LEVEL').text(`${player.level}`);
+        $('#system').text(system);
+        $('#LEVEL').text(player.level);
         $('#EXP').text(`${player.exp} / ${player.maxExp}`);
         $('#HP').text(`${player.HP} / ${player.maxHP}`);
-        $('#STR').text(`${player.str}`);
-        $('#DEF').text(`${player.def}`);
-
-        const x = field.x;
-        const y = field.y;
-        field.canGo.forEach((canGo, idx) => {
-          const dom = $(`button[value="${idx}"]`);
-          dom.show();
-          dom.unbind('click');
-          if (canGo === 1) {
-            dom.bind('click', function () {
-              sendAction('move', {direction: idx});
-            });
-          }
-        })
-        // if (event) {
-        //   $('#event_result').text(event.description);
-        // } else {
-        //   $('#event_result').text("아무일도 일어나지 않았다.");
-        // }
+        $('#STR').text(player.str);
+        $('#INT').text(player.int);
       });
 }
 
@@ -128,6 +96,16 @@ reset.bind('click', function () {
   localStorage.removeItem('_key');
   location.href = "/";
 })
+const reroll = $('#reroll');
+reroll.bind('click', function() {
+  sendAction('reroll');
+})
+for (let i of [0,1,2,3]) {
+  const go = $(`button[value="${i}"]`);
+  go.bind('click', function() {
+    sendAction('move', {direction: i});
+  })
+}
 
 const key = localStorage.getItem('_key');
 if (!key) {

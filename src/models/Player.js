@@ -6,19 +6,21 @@ const schema = new Schema({
   key: String,
 
   level: { type: Number, default: 1 },
+  stage: { type: Number, default: 0 },
   exp: { type: Number, default: 0 },
   maxExp: { type: Number, default: 100 },
 
   maxHP: { type: Number, default: 10 },
   HP: { type: Number, default: 10 },
 
-  str: { type: Number, default: 5 },
-  def: { type: Number, default: 5 },
+  str: { type: Number, default: Math.floor(Math.random()*5) },
+  int: { type: Number, default: Math.floor(Math.random()*5) },
+  reroll: { type: Number, default: 5 },
 
   x: { type: Number, default: 0 },
   y: { type: Number, default: 0 },
 
-  items:[String]
+  items: [String]
 });
 
 schema.methods.incrementHP = function (val) {
@@ -42,16 +44,6 @@ schema.methods.incrementEXP = function (val) {
     this.exp = exp;
   }
 };
-
-schema.methods.getItem = function(itemId){
-  const itemList = this.items;
-  if (itemList.find(x => x === itemId)) {
-    return false;
-  }
-  itemList.push(itemId);
-  this.items=itemList;
-  return true;
-}
 
 const Player = mongoose.model("Player", schema);
 
