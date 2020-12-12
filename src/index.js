@@ -32,6 +32,10 @@ app.post("/signup", signup);
 
 app.post("/action", authentication, action);
 
+app.get("/ending", (req, res) => {
+  res.render("ending", { score: req.score });
+});
+
 app.listen(3000, () => {
   console.log(`listening at http://localhost:3000`); // 정상 시작 알림
 })

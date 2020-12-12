@@ -3,29 +3,43 @@ const item = require('../datas/items.json');
 const e = require("express");
 
 
-const eventProb = [0.6, 0.85, 1]; // nothing, item, battle
+const eventProb = [0.1, 0.4, 0.5]; // nothing, item, battle
 
 async function action (req, res) {
+
+    let event='', system='';
+
     const { action } = req.body;
     const player = req.player;
     
     if (action === "reroll") {
-      if (player.reroll > 0 && player.x === 0 && player.y === 0 && player.exp === 0) {
-        player.str = Math.floor(Math.random()*5);
-        player.int = Math.floor(Math.random()*5);
-        player.reroll -= 1;
+      player.str = Math.floor(Math.random()*5);
+      player.int = Math.floor(Math.random()*5);
+      player.reroll -= 1;
+      event = '능력치를 재설정했다.';
+      system = '남은 재설정 횟수: ' + player.reroll;
+      if (player.reroll === 0) {
+        player.status = 1;
       }
       await player.save();
-      const event = '능력치를 재설정했다.';
-      const system = '남은 재설정 횟수: ' + player.reroll;
       return res.send(_draw(player, event, system));
     }
 
     if (action === "query") {
-      return res.send(_draw(player));
+      if (player.status === 0) {
+        event = '모험 시작! 능력치를 5번 까지 재설정 할 수 있다.';
+      }
+      if (player.status === 2) {
+        event = '적을 만났다.'
+      }
+      if (player.status === 3) {
+        event = '전투 중이다.'
+      }
+      return res.send(_draw(player, event, system));
     }
     
     if (action === "move") {
+      player.status = 1;
       const d = req.body.direction;
       const move = {
         "0": [0, -1],
@@ -36,37 +50,95 @@ async function action (req, res) {
       const mx = move[d][0];
       const my = move[d][1];
       if (player.x + mx < 0 || player.y + my < 0 || player.x + mx > 9 || player.y + my > 9) {
-        const system = "그 쪽으로는 움직일 수 없다.";
+        system = "그 쪽으로는 움직일 수 없다.";
         return res.send(_draw(player, '', system));
       }      
       
+      player.move += 1;
       player.x += mx;
       player.y += my;
 
       const sample = Math.random();
-      let event = '';
-      let system = '';
 
       if (sample < eventProb[0]) { // nothing
         event = "아무 일도 일어나지 않았다."
       }
       else if (sample < eventProb[1]) { // item
         const item = itemManager.getRandom();
-        const name = item.name[player.stage];
-        const str = item.str[player.stage];
-        const int = item.int[player.stage];
+        const { name, str, int, hp } = _stat(player, item);
         player.items.push(name);
         player.str += str;
         player.int += int;
+        player.incrementHP(hp);
         await player.save();
-        event = `${name}을 얻어서 str이 ${str}, int가 ${int} 증가했다!`;
+        event = `${name}을 얻었다! str이 ${str} int가 ${int} hp가 ${hp} 증가했다!`;
       }
       else { // battle
+        player.status = 2;
         const monster = monsterManager.getRandom();
-        const name = monster.name[player.stage];
-        const str = monster.str[player.stage];
-        const int = monster.int[player.stage];
-        event = `${name}을 만났다! 상대는 str:${str}, int:${int} 이다!`;
+        const { name, str, int, hp } = _stat(player, monster);
+        player.enemy = { name, hp, turn: 0 };
+        event = `${name}을 만났다! 상대는 hp: ${hp} str:${str} int:${int}이다!`;
+      }
+      await player.save();
+      return res.send(_draw(player, event, system));
+    }
+
+    if (action === 'hit') {
+      player.status = 3;
+
+      const monster = monsterManager.get(player.enemy.name);
+      const { name, str, int, hp } = _stat(player, monster);
+      const damage = monster.damage[player.stage];
+
+      const sample = Math.random();
+      
+      player.enemy.turn += 1;
+      if (player.enemy.turn >= 10) {
+        player.status = 2;
+      }
+      system = `전투 중.... (${player.enemy.turn}턴 째)`;
+
+      if (sample > (int + str) / (int + str + player.str + player.int )) {
+        player.enemy.hp -= damage;
+        event = `공격에 성공했다. ${damage}의 피해를 입혔다. (적의 체력: ${player.enemy.hp})`;
+
+        if (player.enemy.hp <= 0) {
+          event = `적을 무찔렀다.`;
+          system = '';
+          player.incrementEXP(monster.exp[player.stage]);
+          player.status = 1;
+          if (player.level === 4) {
+            player.stage = 1;
+          }
+          if (player.level === 8) {
+            player.stage = 2;
+          }
+          if (player.level === 12) {
+            player.status = -1;
+            event = '졸업을 축하합니다.';
+            system = '게임 종료.';
+          }
+        }
+      }
+      else {
+        player.HP -= damage;
+        event = `공격에 실패했다. ${damage}의 피해를 입었다! (적의 체력: ${player.enemy.hp})`;
+        if (player.HP <= 0.2*player.maxHP) {
+          player.status = 2;
+        }
+        if (player.HP <= 0) {
+          event = `죽어버렸다...`;
+          system = `능력치와 아이템이 초기화 되었다.`
+          player.HP = player.maxHP;
+          player.exp = 0;
+          player.str = Math.floor(Math.random()*5);
+          player.int = Math.floor(Math.random()*5);
+          player.items = [];
+          player.x = 0;
+          player.y = 0;
+          player.status = 1;
+        }
       }
       await player.save();
       return res.send(_draw(player, event, system));
@@ -99,7 +171,13 @@ function _list(items) {
     res[i] = i in res? res[i]+1 : 1;
   }
   const x = Object.keys(res).reduce((acc, cur) => acc + `${cur} : ${res[cur]}개\n`, '');
-  console.log(x);
-  console.log(res);
   return x;
+}
+
+function _stat(player, x) {
+  const name = x.name[player.stage];
+  const str = x.str[player.stage];
+  const int = x.int[player.stage];
+  const hp = x.hp[player.stage];
+  return { name, str, int, hp };
 }

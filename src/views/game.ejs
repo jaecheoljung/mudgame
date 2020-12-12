@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <div class="row justify-content-md-center align-items-center text-center"  style="background-color:darkseagreen;">
         <h1>
-          <div id="title"></div> 과정을 무사히 끝마치자.
+          {<span id="title"></span>} 과정을 무사히 끝마치자.
         </h1>
       </div>
       <div class="row justify-content-md-center align-items-center text-center">
@@ -52,14 +52,14 @@
       </div>
     </div>
       <div class="row justify-content-md-center align-items-center text-center"  style="background-color:darkseagreen;">
+        <div class="col-lg-3">
+          <h3>[Total move : <span id="move"></span> ]</h3>
+        </div>
         <div class="col-md-2">
           <button class="btn btn-secondary" id="reroll">능력치재설정</button>
         </div>
         <div class="col-md-2">
           <button class="btn btn-secondary" id="hit">공격하기</button>
-        </div>
-        <div class="col-md-2">
-          <button class="btn btn-secondary" id="run">도망가기</button>
         </div>
         <div class="col-lg-2">
           <button class="btn btn-danger" id="reset">Go to front</button>
@@ -88,17 +88,27 @@ const sendAction = (action, params = {}) => {
         $('#HP').text(`${player.HP} / ${player.maxHP}`);
         $('#STR').text(player.str);
         $('#INT').text(player.int);
+        $('#move').text(player.move);
+
+        player.status === 0? reroll.show() : reroll.hide();
+        player.status >= 2? hit.show() : hit.hide();
+
+        for (let i of [0,1,2,3]) {
+          const go = $(`button[value="${i}"]`);
+          player.status === 3? go.hide() : go.show();
+        }
       });
 }
 
+
+const reroll = $('#reroll');
+reroll.bind('click', function() {
+  sendAction('reroll');
+})
 const reset = $('#reset');
 reset.bind('click', function () {
   localStorage.removeItem('_key');
   location.href = "/";
-})
-const reroll = $('#reroll');
-reroll.bind('click', function() {
-  sendAction('reroll');
 })
 for (let i of [0,1,2,3]) {
   const go = $(`button[value="${i}"]`);
@@ -106,6 +116,11 @@ for (let i of [0,1,2,3]) {
     sendAction('move', {direction: i});
   })
 }
+const hit = $('#hit');
+hit.bind('click', function() {
+  sendAction('hit');
+});
+
 
 const key = localStorage.getItem('_key');
 if (!key) {

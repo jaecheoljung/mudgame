@@ -7,6 +7,8 @@ const schema = new Schema({
 
   level: { type: Number, default: 1 },
   stage: { type: Number, default: 0 },
+  move: { type: Number, default: 0 },
+
   exp: { type: Number, default: 0 },
   maxExp: { type: Number, default: 100 },
 
@@ -20,6 +22,9 @@ const schema = new Schema({
   x: { type: Number, default: 0 },
   y: { type: Number, default: 0 },
 
+  status: { type: Number, default: 0 }, // 0 start 1 normal 2 encounter 3 battle -1 end
+  enemy: { name: String, hp: Number, turn: Number },
+
   items: [String]
 });
 
@@ -27,13 +32,6 @@ schema.methods.incrementHP = function (val) {
   const hp = this.HP + val;
   this.HP = Math.min(Math.max(0, hp), this.maxHP)
 };
-
-schema.methods.death = function () {
-  this.HP = 10;
-  this.exp = 0;
-  this.x = 0;
-  this.y = 0;
-}
 
 schema.methods.incrementEXP = function (val) {
   const exp = this.exp + val;
