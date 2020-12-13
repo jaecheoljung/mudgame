@@ -1,9 +1,9 @@
 const { itemManager, monsterManager } = require("../datas/Manager");
 const item = require('../datas/items.json');
-const e = require("express");
+const express = require("express");
 
 
-const eventProb = [0.1, 0.4, 0.5]; // nothing, item, battle
+const eventProb = [0.1, 0.4, 1]; // nothing, item, battle
 
 async function action (req, res) {
 
@@ -70,15 +70,14 @@ async function action (req, res) {
         player.str += str;
         player.int += int;
         player.incrementHP(hp);
-        await player.save();
-        event = `${name}을 얻었다! str이 ${str} int가 ${int} hp가 ${hp} 증가했다!`;
+        event = `${name}을(를) 얻었다! \n str이 ${str} int가 ${int} hp가 ${hp} 증가했다!`;
       }
       else { // battle
         player.status = 2;
         const monster = monsterManager.getRandom();
         const { name, str, int, hp } = _stat(player, monster);
         player.enemy = { name, hp, turn: 0 };
-        event = `${name}을 만났다! 상대는 hp: ${hp} str:${str} int:${int}이다!`;
+        event = `${name}을(를) 만났다! \n 상대는 hp: ${hp} str:${str} int:${int}이다!`;
       }
       await player.save();
       return res.send(_draw(player, event, system));
@@ -101,7 +100,7 @@ async function action (req, res) {
 
       if (sample > (int + str) / (int + str + player.str + player.int )) {
         player.enemy.hp -= damage;
-        event = `공격에 성공했다. ${damage}의 피해를 입혔다. (적의 체력: ${player.enemy.hp})`;
+        event = `공격에 성공했다. \n${damage}의 피해를 입혔다. \n(적의 남은 체력: ${player.enemy.hp})`;
 
         if (player.enemy.hp <= 0) {
           event = `적을 무찔렀다.`;
@@ -123,7 +122,7 @@ async function action (req, res) {
       }
       else {
         player.HP -= damage;
-        event = `공격에 실패했다. ${damage}의 피해를 입었다! (적의 체력: ${player.enemy.hp})`;
+        event = `공격에 실패했다. \n${damage}의 피해를 입었다! \n(적의 남은 체력: ${player.enemy.hp})`;
         if (player.HP <= 0.2*player.maxHP) {
           player.status = 2;
         }

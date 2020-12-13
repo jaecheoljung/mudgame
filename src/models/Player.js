@@ -12,8 +12,8 @@ const schema = new Schema({
   exp: { type: Number, default: 0 },
   maxExp: { type: Number, default: 100 },
 
-  maxHP: { type: Number, default: 10 },
-  HP: { type: Number, default: 10 },
+  maxHP: { type: Number, default: 50 },
+  HP: { type: Number, default: 50 },
 
   str: { type: Number, default: Math.floor(Math.random()*5) },
   int: { type: Number, default: Math.floor(Math.random()*5) },
@@ -37,6 +37,7 @@ schema.methods.incrementEXP = function (val) {
   const exp = this.exp + val;
   if (exp >= this.maxExp) {
     this.level += parseInt(exp / this.maxExp);
+    this.maxHP += 20*parseInt(exp / this.maxExp);
     this.exp = exp % this.maxExp;
   } else {
     this.exp = exp;

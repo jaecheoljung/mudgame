@@ -17,7 +17,7 @@ const itemManager = {
 
 const monsterManager = {
     getRandom() {
-        const i = Math.floor(Math.random() * item.length);
+        const i = Math.floor(Math.random() * monster.length);
         return monster[i];
     },
     get(name) {

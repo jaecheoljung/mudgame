@@ -13,8 +13,8 @@ async function signup(req, res) {
   
     const player = new Player({
       name,
-      maxHP: 10,
-      HP: 10,
+      maxHP: 50,
+      HP: 50,
       str: 5,
       def: 5,
       x: 0,
