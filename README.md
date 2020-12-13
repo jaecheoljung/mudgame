@@ -1,10 +1,8 @@
 # 시작하기
 
-Clone this \
--> npm install \
--> node src/index.js \
+Clone this -> npm install -> node src/index.js
 
-*Node 시작 전에 _config.js_ 파일을 최상단 디렉토리 안에 넣어 주셈...*
+:boom: Node 시작 전에 _config.js_ 파일을 최상단 디렉토리 안에 넣어 주셈... :boom:
 
 ```javascript
 ** config.js **
@@ -14,10 +12,10 @@ module.exports = {
 }
 ```
 
-## 기본 스펙
+## :ok_hand: 기본 스펙
 
 - 코드 샌드박스 주소
-> 제일 마지막에 할 일
+> :sleeping: 제일 마지막에 할 일
 - 로그인, 회원가입
 - 10 * 10 의 맵
 - 캐릭터의 이동
@@ -31,7 +29,7 @@ module.exports = {
 - 레벨 시스템
 > 학사(Lv 1-4) -> 석사(Lv 5-8) -> 박사(Lv 9-12) -> 졸업(Lv 13 달성)
 
-## 추가스펙
+## :ok_hand: 추가 스펙
 
 - 체력 회복하는 아이템 존재
 - 움직이면 랜덤하게 아이템/몬스터 발견  
@@ -41,13 +39,13 @@ module.exports = {
 - 유저의 인벤토리가 클라이언트 상에서 확인이 가능하다.
 - 전투 중, 10턴 안에 전투가 끝나지 않거나, 체력이 20% 이하로 감소할 경우 도망가는 선택지가 추가로 주어진다.
 
-## 할 일
-- 맵
+## :+1: 할 일
+- 맵 :running:
 > 레벨 별로? Move 별로? 달라짐
 > 어디에 맵을 표시할지 고민 중
-- 아이템
+- 아이템 :see_no_evil:
 > items.json 작성 해야됨
-- 몬스터
+- 몬스터 :see_no_evil:
 > monsters.json 작성 해야됨
-- 배경음악 추가?
+- :fire: 배경음악 추가
 > 굳이 안 해도 됨
