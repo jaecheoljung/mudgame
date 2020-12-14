@@ -147,9 +147,6 @@ async function action (req, res) {
           player.itemIds.splice(removeItemIndex,1);
           player.str -= removedStr;
           player.int -= removedInt;
-          console.log(removedItem);
-          console.log(item[removedId].str[removedStatus]);
-          console.log(item[removedId].int[removedStatus]);
           player.x = 0;
           player.y = 0;
           player.status = 1;
@@ -194,8 +191,4 @@ function _stat(player, x) {
   const int = x.int[player.stage];
   const hp = x.hp[player.stage];
   return { id, name, str, int, hp };
-}
-
-function _findItem(itemName){
-
 }
