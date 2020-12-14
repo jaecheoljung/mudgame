@@ -24,6 +24,20 @@ app.get("/", (req, res) => {
   res.render("index", { gameName: constantManager.gameName});
 });
 
+app.get("/img", (req, res) => {
+  fs.readFile('./img/main.png', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
+
+app.get("/bgimg", (req, res) => {
+  fs.readFile('./img/snu.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
+
 app.get("/game", (req, res) => {
   res.render("game");
 });

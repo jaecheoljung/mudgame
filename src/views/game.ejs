@@ -10,20 +10,53 @@
 
 <body>
   <div class="container-fluid">
-    <div class="row justify-content-md-center align-items-center text-center" style="background-color:darkseagreen;">
-      <h1>
+    <div class="row justify-content-md-center align-items-center text-center" style="background-color:rgb(0, 0,128);">
+    <!-- <div class="row justify-content-md-center align-items-center text-center" style="background-color:darkseagreen;"> -->
+      <!-- <h1> -->
+      <h1 style = "color: white">
         [<span id="title"></span>] 과정을 무사히 끝마치자.
       </h1>
     </div>
+
+
+    <div>
+      <style>
+        body{
+          width: 100%;
+          height: 100%;
+          /* text-align: center; */
+          position: relative;
+          z-index: 1;
+        }
+        body::after{
+          width: 100%;
+          height: 100%;
+          content:"";
+          background: url('/bgimg');
+          background-position: center;
+          background-repeat: no-repeat;
+          position: absolute;
+          top: -100;
+          left: 0;
+          background-size: 60% 100%;
+          opacity: 0.3!important;
+          z-index:-1;
+        }
+      </style>
+      <!-- <img src="/bgimg" width=auto height=auto/> -->
+
+
     <div class="row justify-content-md-center align-items-center text-center">
-      <div class="col-lg-2" style="height: 10em; background-color: burlywood;">
+      <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
+      <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
         [Event]<br>
         <div id="event" style="white-space: pre-line"></div>
       </div>
       <div class="col-md-1">
         <button type="button" class="btn btn-success" value="0">N</button>
       </div>
-      <div class="col-lg-2" style="height: 10em; background-color: burlywood;">
+      <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
+      <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
         [Inventory]
         <div id="inventory" style="white-space:pre-line"></div>
       </div>
@@ -41,7 +74,8 @@
       </div>
     </div>
     <div class="row justify-content-md-center align-items-center text-center">
-      <div class="col-lg-2" style="height: 10em; background-color: burlywood;">
+      <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
+      <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
         [Status] <br>
         Level: <span id="LEVEL"> 0</span><br>
         Exp: <span id="EXP"> 0 / 0</span><br>
@@ -52,14 +86,25 @@
       <div class="col-md-1">
         <button type="button" class="btn btn-success" value="2">S</button>
       </div>
-      <div class="col-lg-2" style="height: 10em; background-color: burlywood;">
+      <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
+      <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
         [System]<br>
         <div id="system" style="white-space:pre-line"></div>
       </div>
     </div>
+
+
+    </div>
+
+
   </div>
-  <div class="row justify-content-md-center align-items-center text-center" style="background-color:darkseagreen;">
-    <div class="col-lg-3">
+
+
+
+  <div class="row justify-content-md-center align-items-center text-center" style="background-color: rgb(0, 0,128);">
+  <!-- <div class="row justify-content-md-center align-items-center text-center" style="background-color:darkseagreen;"> -->
+    <!-- <div class="col-lg-3"> -->
+    <div class="col-lg-3" style = "color: white">
       <h3>[Total move : <span id="move"></span> ]</h3>
     </div>
     <div class="col-md-2">
