@@ -1,16 +1,13 @@
 const { Player } = require("../models/Player");
 const crypto = require("crypto");
 
-
-
 async function signup(req, res) {
     const { name } = req.body;
   
     if (await Player.exists({ name })) {
-      // 추가 부탁
       return res.status(400).json({error: 'Player already exists'});
     }
-  
+    
     const player = new Player({
       name,
       maxHP: 50,
@@ -25,10 +22,8 @@ async function signup(req, res) {
     player.key = key;
   
     await player.save();
-
     return res.send({ key });
   };
-
 
   module.exports = {
       signup
