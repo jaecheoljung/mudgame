@@ -2,7 +2,6 @@ const { itemManager, monsterManager } = require("../datas/Manager");
 const item = require('../datas/items.json');
 const express = require("express");
 
-
 const eventProb = [0.1, 0.4, 1]; // nothing, item, battle
 
 async function action (req, res) {
