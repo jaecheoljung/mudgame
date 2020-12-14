@@ -65,8 +65,9 @@ async function action (req, res) {
       }
       else if (sample < eventProb[1]) { // item
         const item = itemManager.getRandom();
-        const { name, str, int, hp } = _stat(player, item);
+        const { id, name, str, int, hp } = _stat(player, item);
         player.items.push(name);
+        player.itemIds.push(id);        
         player.str += str;
         player.int += int;
         player.incrementHP(hp);
@@ -75,7 +76,7 @@ async function action (req, res) {
       else { // battle
         player.status = 2;
         const monster = monsterManager.getRandom();
-        const { name, str, int, hp } = _stat(player, monster);
+        const { id, name, str, int, hp } = _stat(player, monster);
         player.enemy = { name, hp, turn: 0 };
         event = `${name}을(를) 만났다! \n 상대는 hp: ${hp} str:${str} int:${int}이다!`;
       }
@@ -87,7 +88,7 @@ async function action (req, res) {
       player.status = 3;
 
       const monster = monsterManager.get(player.enemy.name);
-      const { name, str, int, hp } = _stat(player, monster);
+      const { id, name, str, int, hp } = _stat(player, monster);
       const damage = monster.damage[player.stage];
 
       const sample = Math.random();
@@ -99,8 +100,11 @@ async function action (req, res) {
       system = `전투 중.... (${player.enemy.turn}턴 째)`;
 
       if (sample > (int + str) / (int + str + player.str + player.int )) {
+        if (player.HP <= 0.2*player.maxHP) {
+          player.status = 2;
+        }
         player.enemy.hp -= damage;
-        event = `공격에 성공했다. \n${damage}의 피해를 입혔다. \n(적의 남은 체력: ${player.enemy.hp})`;
+        event = `[${player.enemy.name}과 전투중]\n공격에 성공했다.\n${damage}의 피해를 입혔다.\n(적의 남은 체력: ${player.enemy.hp})`;
 
         if (player.enemy.hp <= 0) {
           event = `적을 무찔렀다.`;
@@ -122,21 +126,34 @@ async function action (req, res) {
       }
       else {
         player.HP -= damage;
-        event = `공격에 실패했다. \n${damage}의 피해를 입었다! \n(적의 남은 체력: ${player.enemy.hp})`;
+        event = `[${player.enemy.name}과 전투중]\n공격에 실패했다.\n${damage}의 피해를 입었다!\n(적의 남은 체력: ${player.enemy.hp})`;
         if (player.HP <= 0.2*player.maxHP) {
           player.status = 2;
         }
         if (player.HP <= 0) {
           event = `죽어버렸다...`;
-          system = `능력치와 아이템이 초기화 되었다.`
-          player.HP = player.maxHP;
+          
+          player.HP = player.maxHP/2;
           player.exp = 0;
-          player.str = Math.floor(Math.random()*5);
-          player.int = Math.floor(Math.random()*5);
-          player.items = [];
+
+          const removeItemIndex = Math.floor(Math.random()*player.items.length);
+          const removedId = player.itemIds[removeItemIndex];
+          const removedItem = player.items[removeItemIndex];
+          const removedStatus = item[removedId].name.indexOf(removedItem);
+          const removedStr = item[removedId].str[removedStatus];
+          const removedInt = item[removedId].int[removedStatus];
+
+          player.items.splice(removeItemIndex,1);
+          player.itemIds.splice(removeItemIndex,1);
+          player.str -= removedStr;
+          player.int -= removedInt;
+          console.log(removedItem);
+          console.log(item[removedId].str[removedStatus]);
+          console.log(item[removedId].int[removedStatus]);
           player.x = 0;
           player.y = 0;
           player.status = 1;
+          system = `경험치가 초기화 되었다.\n체력을 50% 회복했다.\n위치가 원점으로 돌아간다.\n ${removedItem}을(를) 잃었다.\n str ${removedStr}, int ${removedInt}만큼 줄었다.`
         }
       }
       await player.save();
@@ -148,14 +165,11 @@ module.exports = {
     action
 }
 
-
-
 function _draw (player, event='', system='') {
   const minimap = _map(player.x, player.y);
   const inventory = _list(player.items);
   return { player, minimap, inventory, event, system };
 }
-
 
 function _map(x, y) {
   const blankline = '□□□□□□□□□□'+'\n';
@@ -174,9 +188,14 @@ function _list(items) {
 }
 
 function _stat(player, x) {
+  const id=x.id;
   const name = x.name[player.stage];
   const str = x.str[player.stage];
   const int = x.int[player.stage];
   const hp = x.hp[player.stage];
-  return { name, str, int, hp };
+  return { id, name, str, int, hp };
+}
+
+function _findItem(itemName){
+
 }

@@ -25,7 +25,8 @@ const schema = new Schema({
   status: { type: Number, default: 0 }, // 0 start 1 normal 2 encounter 3 battle -1 end
   enemy: { name: String, hp: Number, turn: Number },
 
-  items: [String]
+  items: [String],
+  itemIds: [Number]
 });
 
 schema.methods.incrementHP = function (val) {

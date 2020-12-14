@@ -20,7 +20,7 @@
         </div>
         <div class="col-lg-2"  style="height: 10em; background-color: burlywood;">
           [Inventory]
-          <div id="inventory"></div>
+          <div id="inventory" style="white-space:pre-line"></div>
         </div>
       </div>
       <div class="row justify-content-md-center align-items-center text-center">
@@ -48,7 +48,7 @@
         </div>
         <div class="col-lg-2" style="height: 10em; background-color: burlywood;">
           [System]<br>
-          <div id="system"></div>
+          <div id="system" style="white-space:pre-line"></div>
         </div>
       </div>
     </div>
@@ -129,10 +129,11 @@ if (!key) {
   location.href = "/";
 }
 
+
 const music = $('#music');
 music.bind('click', function() {
   const audio = new Audio('http://hiy9.net/ms-ost/music/HighEnough.mp3');
-  audio.loop = true;
+  audio.loop = true;  
   audio.play();
 })
 
