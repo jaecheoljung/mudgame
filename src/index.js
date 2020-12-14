@@ -3,7 +3,7 @@ const fs = require("fs");
 const mongoose = require("mongoose");
 const crypto = require("crypto");
 
-const { constantManager, mapManager, inventoryManager } = require("./datas/Manager");
+const { constantManager, mapManager, inventoryManager} = require("./datas/Manager");
 const { Player } = require("./models/Player");
 const { secret, mongoURI } = require("../config");
 const { action } = require("./controller/action");
@@ -21,14 +21,15 @@ mongoose.connect( mongoURI, { useNewUrlParser: true, useUnifiedTopology: true } 
     .catch(e => console.error(e));
 
 app.get("/", (req, res) => {
-  res.render("index", { gameName: constantManager.gameName });
+  res.render("index", { gameName: constantManager.gameName});
 });
 
 app.get("/game", (req, res) => {
   res.render("game");
 });
 
-app.post("/signup", signup);
+app.post("/signup", signup, (req, res) => {
+});
 
 app.post("/action", authentication, action);
 

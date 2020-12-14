@@ -3,9 +3,10 @@ const crypto = require("crypto");
 
 async function signup(req, res) {
     const { name } = req.body;
-  
-    if (await Player.exists({ name })) {
-      return res.status(400).json({error: 'Player already exists'});
+    if (await Player.findOne({ name })) {
+      console.log("이미 가입된 아이디입니다.");
+      const message = "중복된 name이 있습니다. 새로운 name으로 설정해주세요."
+      return res.send({message});
     }
     
     const player = new Player({

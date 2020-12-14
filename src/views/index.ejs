@@ -3,38 +3,41 @@
 <head>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
+<!-- 추가 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
 <body>
-  <%= gameName %>에 온 걸 환영합니다. 당신의 이름은?
-    <div class=""></div>
+  <div class="container-fluid">
+    <%= gameName %>에 온 걸 환영합니다. 당신의 이름은?
+      <div class=""></div>
 
-    <form id="form" method="POST" action="/signup">
-      이름: <input name="name" />
-      <input type="submit" value="확인" />
-      <div id="alert"></div>
-    </form>
+      <form id="form" method="POST" action="/signup">
+        이름: <input name="name" />
+        <input type="submit" value="확인" />
+      </form>
+      <script>
 
-    <script>
-
-      const key = localStorage.getItem('_key');
-      if (key) {
-        location.href = '/game';
-      }
-      
-      $('#form').submit(function (e) {
-        e.preventDefault();
-        const action = $(this).attr('action');
-        $.post(action, $(this).serialize(), (res) => {
-          if (res.key) {
-            localStorage.setItem('_key', res.key);
-            location.href = '/game';
-          }
-          else {
-            alert("에러가 발생했습니다. 다시 시도해주세요.");
-          }
+        const key = localStorage.getItem('_key');
+        if (key) {
+          location.href = '/game';
+        }
+        
+        $('#form').submit(function (e) {      
+          e.preventDefault();
+          const action = $(this).attr('action');
+          $.post(action, $(this).serialize(), (res) => {
+            if(res.message) alert(res.message)
+            else if (res.key) {
+              localStorage.setItem('_key', res.key);
+              location.href = '/game';
+            }
+            else {
+              alert("에러가 발생했습니다. 다시 시도해주세요.");
+            }
+          });
         });
-      });
-    </script>
+      </script>
+  </div>
 </body>
 
 </html>
