@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <div class="row justify-content-md-center align-items-center text-center"  style="background-color:darkseagreen;">
         <h1>
-          {<span id="title"></span>} 과정을 무사히 끝마치자.
+          [<span id="title"></span>] 과정을 무사히 끝마치자.
         </h1>
       </div>
       <div class="row justify-content-md-center align-items-center text-center">
@@ -62,6 +62,9 @@
         <div class="col-md-2">
           <button class="btn btn-secondary" id="hit">공격하기</button>
         </div>
+        <div class="col-md-2">
+          <button class="btn btn-secondary" id="ending">졸업하기</button>
+        </div>
         <div class="col-lg-2">
           <button class="btn btn-danger" id="reset">Go to front</button>
         </div>
@@ -80,12 +83,14 @@ const sendAction = (action, params = {}) => {
         data: `action=${action}&direction=${params.direction}`,
       }).done((req) => {
         const { player, minimap, inventory, event, system } = req;
-        $('#title').text(player.stage < 1? "학사" : (player.stage < 2? "석사" : "박사"));
+        const playerDegree= player.stage < 1? "학부" : (player.stage < 2? "석사" : "박사");
+
+        $('#title').text(playerDegree);
         $('#event').text(event);
         $('#minimap').text(minimap);
         $('#inventory').text(inventory);
         $('#system').text(system);
-        $('#LEVEL').text(player.level);
+        $('#LEVEL').text(`${player.level} (${playerDegree}) `);
         $('#EXP').text(`${player.exp} / ${player.maxExp}`);
         $('#HP').text(`${player.HP} / ${player.maxHP}`);
         $('#STR').text(player.str);
@@ -94,6 +99,7 @@ const sendAction = (action, params = {}) => {
 
         player.status === 0? reroll.show() : reroll.hide();
         player.status >= 2? hit.show() : hit.hide();
+        player.stage < 0 ? ending.show(): ending.hide();
 
         for (let i of [0,1,2,3]) {
           const go = $(`button[value="${i}"]`);
@@ -107,6 +113,12 @@ const reroll = $('#reroll');
 reroll.bind('click', function() {
   sendAction('reroll');
 })
+
+const ending = $('#ending');
+ending.bind('click', function(){
+  location.href = "/ending";
+})
+
 const reset = $('#reset');
 reset.bind('click', function () {
   localStorage.removeItem('_key');

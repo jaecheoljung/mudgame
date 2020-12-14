@@ -111,13 +111,13 @@ async function action (req, res) {
           system = '';
           player.incrementEXP(monster.exp[player.stage]);
           player.status = 1;
-          if (player.level === 4) {
+          if (player.level === 5) {
             player.stage = 1;
           }
-          if (player.level === 8) {
+          if (player.level === 9) {
             player.stage = 2;
           }
-          if (player.level === 12) {
+          if (player.level === 13) {
             player.status = -1;
             event = '졸업을 축하합니다.';
             system = '게임 종료.';
