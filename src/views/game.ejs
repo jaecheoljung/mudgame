@@ -67,6 +67,7 @@
         </div>
       </div>
     </div>
+    <button id="music">음악 재생</button>
   <script>
 
 const sendAction = (action, params = {}) => {
@@ -127,6 +128,13 @@ const key = localStorage.getItem('_key');
 if (!key) {
   location.href = "/";
 }
+
+const music = $('#music');
+music.bind('click', function() {
+  const audio = new Audio('http://hiy9.net/ms-ost/music/HighEnough.mp3');
+  audio.loop = true;
+  audio.play();
+})
 
 sendAction("query");    
 
