@@ -125,7 +125,7 @@ async function action(req, res) {
         player.status = 2;
       }
       player.enemy.hp -= damage;
-      event = `[${player.enemy.name}와 전투중]\n공격에 성공했다.\n${damage}의 피해를 입혔다.\n(적의 남은 체력: ${player.enemy.hp})`;
+      event = `[${player.enemy.name}와(과) 전투중]\n공격에 성공했다.\n${damage}의 피해를 입혔다.\n(적의 남은 체력: ${player.enemy.hp})`;
 
       if (player.enemy.hp <= 0) {
         event = `적을 무찔렀다.`;
@@ -148,7 +148,7 @@ async function action(req, res) {
     }
     else {
       player.HP -= damage;
-      event = `[${player.enemy.name}와 전투중]\n공격에 실패했다.\n${damage}의 피해를 입었다!\n(적의 남은 체력: ${player.enemy.hp})`;
+      event = `[${player.enemy.name}와(과) 전투중]\n공격에 실패했다.\n${damage}의 피해를 입었다!\n(적의 남은 체력: ${player.enemy.hp})`;
       if (player.HP <= 0.2 * player.maxHP) {
         player.status = 2;
       }
