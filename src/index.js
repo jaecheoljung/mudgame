@@ -20,6 +20,8 @@ mongoose.connect( mongoURI, { useNewUrlParser: true, useUnifiedTopology: true } 
     .then(() => console.log('Successfully connected to mongodb')) // mongodb connection success
     .catch(e => console.error(e));
 
+
+    //랭킹표 추가?
 app.get("/", (req, res) => {
   res.render("index", { gameName: constantManager.gameName});
 });
