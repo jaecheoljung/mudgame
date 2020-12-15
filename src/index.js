@@ -9,6 +9,7 @@ const { secret, mongoURI } = require("../config");
 const { action } = require("./controller/action");
 const { signup } = require("./controller/sign");
 const { authentication } = require("./middle/auth");
+const { ranking } = require("./controller/ranking");
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -19,9 +20,6 @@ app.engine("html", require("ejs").renderFile);
 mongoose.connect( mongoURI, { useNewUrlParser: true, useUnifiedTopology: true } )
     .then(() => console.log('Successfully connected to mongodb')) // mongodb connection success
     .catch(e => console.error(e));
-
-
-const { ranking } = require("./controller/ranking");
 
 app.get("/", async (req, res) => {
   res.render("index", { gameName: constantManager.gameName, rankList: await ranking()});
