@@ -90,7 +90,7 @@
     </div>
   </div>
   </div>
-  <button id="music">음악 재생</button>
+  <button id="music">음악 재생</button> <button id="cheat">렙업(치트키)</button>
   <script>
 
     const sendAction = (action, params = {}) => {
@@ -173,6 +173,12 @@
       const audio = new Audio('/music');
       audio.loop = true;
       audio.play();
+    })
+
+    /**** 발표용 ****/
+    const cheat = $('#cheat');
+    cheat.bind('click', function () {
+      sendAction("cheat");
     })
 
     sendAction("query");
