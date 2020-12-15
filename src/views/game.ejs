@@ -104,7 +104,7 @@
         method: "POST",
         data: `action=${action}&direction=${params.direction}`,
       }).done((req) => {
-        const { player, minimap, inventory, event, system, map } = req;
+        const { player, minimap, inventory, event, system } = req;
         const playerDegree = player.stage < 1 ? "학부" : (player.stage < 2 ? "석사" : "박사");
 
         $('#title').text(playerDegree);
@@ -120,7 +120,6 @@
         $('#move').text(player.move);
         $('#playerName').text(player.name);
 
-        let mapNum = player.map
         let imgary = new Array();
         imgary.push('/img1')
         imgary.push('/img2')
@@ -131,7 +130,11 @@
         imgary.push('/img7')
         imgary.push('/img8')
         imgary.push('/img9')
-        $('body').css({ 'background': 'url(' + imgary[mapNum] + ')', 'background-repeat': 'no-repeat', 'background-position': 'center' });
+        imgary.push('/img10')
+        imgary.push('/img11')
+        imgary.push('/img12')
+        imgary.push('/img13')
+        $('body').css({ 'background': 'url(' + imgary[player.level-1] + ')', 'background-repeat': 'no-repeat', 'background-position': 'center' });
 
         player.status === 0 ? reroll.show() : reroll.hide();
         player.status >= 2 ? hit.show() : hit.hide();

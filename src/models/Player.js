@@ -27,9 +27,7 @@ const schema = new Schema({
   enemy: { name: String, hp: Number, turn: Number },
 
   items: [String],
-  itemIds: [Number],
-
-  map: { type: Number, default: 0}
+  itemIds: [Number]
 });
 
 schema.methods.incrementHP = function (val) {
@@ -48,12 +46,6 @@ schema.methods.incrementEXP = function (val) {
       this.HP += 10*parseInt(exp / this.maxExp);
     }
     this.exp = exp % this.maxExp;
-    let curmap = this.map
-    while (true) {
-      this.map = Math.floor(Math.random() * 9)
-      if (curmap === this.map) continue
-      else break
-    }
   } else {
     this.exp = exp;
   }
