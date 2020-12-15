@@ -3,129 +3,79 @@
     "ymax": 10,
 
     "0": {
-        "description": "[0, 0] Start",
+        "description": "서울대 정문",
         "x": 0,
         "y": 0,
         "canGo": [0, 1, 1, 0 ],
         "events": []
     },
     "1": {
-        "description": "[0, 1] 아무 일도 일어나지 않는다",
+        "description": "정문 삼거리",
         "x": 0,
         "y": 1,
         "canGo": [1, 1, 1, 0],
         "events": []
     },
     "2": {
-        "description": "[0, 2] 으스스하다",
+        "description": "시냇물",
         "x": 0,
         "y": 2,
         "canGo": [1, 1, 1, 0],
-        "events": [
-            0.8,
-            {
-                "type": "battle",
-                "monster": 3
-            },
-            {
-                "type": "item",
-                "item": 1000
-            }
-        ]
+        "events": []
     },
     "3": {
-        "description": "[0, 3] 아무 일도 일어나지 않는다",
+        "description": "관악산 호수공원",
         "x": 0,
         "y": 3,
         "canGo": [1, 1, 1, 0],
         "events": []
     },
     "4": {
-        "description": "[0, 4] 으스스하다",
+        "description": "자연대학",
         "x": 0,
         "y": 4,
         "canGo": [1, 1, 1, 0],
-        "events": [
-            0.9,
-            {
-                "type": "battle",
-                "monster": 1
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
-        ]
+        "events": []
     },
 
     "5": {
-        "description": "[0, 5] 아무 일도 일어나지 않는다",
+        "description": "중강당 택시줄",
         "x": 0,
         "y": 5,
         "canGo": [1, 1, 1, 0],
         "events": []
     },
     "6": {
-        "description": "[0, 6] 예감이 좋다",
+        "description": "기상관측소",
         "x": 0,
         "y": 6,
         "canGo": [1, 1, 1, 0],
-        "events": [
-            0.1,
-            {
-                "type": "battle",
-                "monster": 2
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": []
     },
     "7": {
-        "description": "[0, 7] 예감이 좋다",
+        "description": "농식",
         "x": 0,
         "y": 7,
         "canGo": [1, 1, 1, 0],
-        "events": [
-            0.3,
-            {
-                "type": "battle",
-                "monster": 4
-            },
-            {
-                "type": "item",
-                "item": 1001
-            }
-        ]
+        "events": []
     },
     "8": {
-        "description": "[0, 8] 아무 일도 일어나지 않는다",
+        "description": "농생대",
         "x": 0,
         "y": 8,
         "canGo": [1, 1, 1, 0],
         "events": []
     },
     "9": {
-        "description": "[0, 9] 예감이 좋다",
+        "description": "막다른길",
         "x": 0,
         "y": 9,
         "canGo": [1, 1, 0, 0 ],
-        "events": [
-            0.1,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": []
     },
 
     "10": {
-        "description": "[1, 0] 아무 일도 일어나지 않는다",
+        "description": "정문 정류장",
         "x": 1,
         "y": 0,
         "canGo": [0, 1, 1, 1 ],
@@ -133,7 +83,7 @@
     },
 
     "11": {
-        "description": "[1, 1] 아무 일도 일어나지 않는다",
+        "description": "대운동장",
         "x": 1,
         "y": 1,
         "canGo": [1, 1, 1, 1 ],
@@ -141,132 +91,72 @@
     },
 
     "12": {
-        "description": "[1, 2] 으스스하다",
+        "description": "법학대학",
         "x": 1,
         "y": 2,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.8,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 1001
-            }
-        ]
+        "events": [ ]
     },
 
     "13": {
-        "description": "[1, 3] 아무 일도 일어나지 않는다",
+        "description": "규장각",
         "x": 1,
         "y": 3,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "14": {
-        "description": "[1, 4] 예감이 좋다",
+        "description": "중강당",
         "x": 1,
         "y": 4,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.2,
-            {
-                "type": "battle",
-                "monster": 4
-            },
-            {
-                "type": "item",
-                "item": 1000
-            }
-        ]
+        "events": [    ]
     },
     "15": {
-        "description": "[1, 5] 으스스하다",
+        "description": "자하연",
         "x": 1,
         "y": 5,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.8,
-            {
-                "type": "battle",
-                "monster": 3
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
-        ]
+        "events": [   ]
     },
     "16": {
-        "description": "[1, 6] 예감이 좋다",
+        "description": "자연대, 행정관 입구 버스 정류장",
         "x": 1,
         "y": 6,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.15,
-            {
-                "type": "battle",
-                "monster": 2
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": [ ]
     },
     "17": {
-        "description": "[1, 7] 으스스하다",
+        "description": "대학 신문",
         "x": 1,
         "y": 7,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.85,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 1000
-            }
-        ]
+        "events": [ ]
     },
     "18": {
-        "description": "[1, 8] 아무 일도 일어나지 않는다",
+        "description": "두레미담",
         "x": 1,
         "y": 8,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "19": {
-        "description": "[1, 9] 아무 일도 일어나지 않는다",
+        "description": "공대 해동",
         "x": 1,
         "y": 9,
         "canGo": [1, 1, 0, 1 ],
         "events": []
     },
     "20": {
-        "description": "[2, 0] 으스스하다",
+        "description": "미술관",
         "x": 2,
         "y": 0,
         "canGo": [0, 1, 1, 1 ],
-        "events": [
-            0.9,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
-        ]
+        "events": [   ]
     },
 
     "21": {
-        "description": "[2, 1] 아무 일도 일어나지 않는다",
+        "description": "법대 도서관",
         "x": 2,
         "y": 1,
         "canGo": [1, 1, 1, 1 ],
@@ -274,7 +164,7 @@
     },
 
     "22": {
-        "description": "[2, 2] 아무 일도 일어나지 않는다",
+        "description": "대강당",
         "x": 2,
         "y": 2,
         "canGo": [1, 1, 1, 1 ],
@@ -282,96 +172,56 @@
     },
 
     "23": {
-        "description": "[2, 3] 예감이 좋다",
+        "description": "사회대",
         "x": 2,
         "y": 3,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0,
-            {
-                "type": "battle",
-                "monster": 2
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [  ]
     },
     "24": {
-        "description": "[2, 4] 아무 일도 일어나지 않는다",
+        "description": "셔틀줄",
         "x": 2,
         "y": 4,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "25": {
-        "description": "[2, 5] 예감이 좋다",
+        "description": "행정관",
         "x": 2,
         "y": 5,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.2,
-            {
-                "type": "battle",
-                "monster": 4
-            },
-            {
-                "type": "item",
-                "item": 1001
-            }
-        ]
+        "events": [  ]
     },
     "26": {
-        "description": "[2, 6] 으스스하다",
+        "description": "전산실",
         "x": 2,
         "y": 6,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            1,
-            {
-                "type": "battle",
-                "monster": 2
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
-        ]
+        "events": [  ]
     },
     "27": {
-        "description": "[2, 7] 아무 일도 일어나지 않는다",
+        "description": "농대 광장",
         "x": 2,
         "y": 7,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "28": {
-        "description": "[2, 8] 아무 일도 일어나지 않는다",
+        "description": "자연대 대형 강의동",
         "x": 2,
         "y": 8,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "29": {
-        "description": "[2, 9] 으스스하다",
+        "description": "프리미엄 BBQ카페",
         "x": 2,
         "y": 9,
         "canGo": [1, 1, 0, 1 ],
-        "events": [
-            0.7,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [ ]
     },
     "30": {
-        "description": "[3, 0] 아무 일도 일어나지 않는다",
+        "description": "서울대 입학본부",
         "x": 3,
         "y": 0,
         "canGo": [0, 1, 1, 1 ],
@@ -379,7 +229,7 @@
     },
 
     "31": {
-        "description": "[3, 1] 아무 일도 일어나지 않는다",
+        "description": "야구장",
         "x": 3,
         "y": 1,
         "canGo": [1, 1, 1, 1 ],
@@ -387,7 +237,7 @@
     },
 
     "32": {
-        "description": "[3, 2] 아무 일도 일어나지 않는다",
+        "description": "경영대",
         "x": 3,
         "y": 2,
         "canGo": [1, 1, 1, 1 ],
@@ -395,106 +245,57 @@
     },
 
     "33": {
-        "description": "[3, 3] 으스스하다",
+        "description": "자하연 농협",
         "x": 3,
         "y": 3,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.75,
-            {
-                "type": "battle",
-                "monster": 4
-            },
-            {
-                "type": "item",
-                "item": 1001
-            }
-        ]
+        "events": [   ]
     },
     "34": {
-        "description": "[3, 4] 아무 일도 일어나지 않는다",
+        "description": "자하연 느티나무",
         "x": 3,
         "y": 4,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "35": {
-        "description": "[3, 5] 아무 일도 일어나지 않는다",
+        "description": "학생회관",
         "x": 3,
         "y": 5,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "36": {
-        "description": "[3, 6] 예감이 좋다",
+        "description": "총장잔디",
         "x": 3,
         "y": 6,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.2,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": [  ]
     },
     "37": {
-        "description": "[3, 7] 예감이 좋다",
+        "description": "보건진료소",
         "x": 3,
         "y": 7,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.01,
-            {
-                "type": "battle",
-                "monster": 3
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": []
     },
     "38": {
-        "description": "[3, 8] 으스스하다",
+        "description": "자연대 쉼터 정자",
         "x": 3,
         "y": 8,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.88,
-            {
-                "type": "battle",
-                "monster": 4
-            },
-            {
-                "type": "item",
-                "item": 1000
-            }
-        ]
+        "events": []
     },
     "39": {
-        "description": "[3, 9] 으스스하다",
+        "description": "아이디어 팩토리",
         "x": 3,
         "y": 9,
         "canGo": [1, 1, 0, 1 ],
         "events": [
-            0.6,
-            {
-                "type": "battle",
-                "monster": 1
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
         ]
     },
     "40": {
-        "description": "[4, 0] 아무 일도 일어나지 않는다",
+        "description": "구 체육관",
         "x": 4,
         "y": 0,
         "canGo": [0, 1, 1, 1 ],
@@ -502,303 +303,153 @@
     },
 
     "41": {
-        "description": "[4, 1] 예감이 좋다",
+        "description": "라운지 오",
         "x": 4,
         "y": 1,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.1,
-            {
-                "type": "battle",
-                "monster": 2
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [        ]
     },
 
     "42": {
-        "description": "[4, 2] 으스스하다",
+        "description": "멀티미디어 강의동",
         "x": 4,
         "y": 2,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.9,
-            {
-                "type": "battle",
-                "monster": 3
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": [        ]
     },
 
     "43": {
-        "description": "[4, 3] 아무 일도 일어나지 않는다",
+        "description": "사회대 신양",
         "x": 4,
         "y": 3,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "44": {
-        "description": "[4, 4] 으스스하다",
+        "description": "인문대 신양",
         "x": 4,
         "y": 4,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.7,
-            {
-                "type": "battle",
-                "monster": 4
-            },
-            {
-                "type": "item",
-                "item": 1000
-            }
-        ]
+        "events": [        ]
     },
     "45": {
-        "description": "[4, 5] 아무 일도 일어나지 않는다",
+        "description": "중앙도서관",
         "x": 4,
         "y": 5,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "46": {
-        "description": "[4, 6] 으스스하다",
+        "description": "교보문고",
         "x": 4,
         "y": 6,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.7,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": [        ]
     },
     "47": {
-        "description": "[4, 7] 예감이 좋다",
+        "description": "우체국",
         "x": 4,
         "y": 7,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.3,
-            {
-                "type": "battle",
-                "monster": 1
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
-        ]
+        "events": [        ]
     },
     "48": {
-        "description": "[4, 8] 아무 일도 일어나지 않는다",
+        "description": "아랫공대",
         "x": 4,
         "y": 8,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "49": {
-        "description": "[4, 9] 으스스하다",
+        "description": "공대 신양",
         "x": 4,
         "y": 9,
         "canGo": [1, 1, 0, 1 ],
-        "events": [
-            0.7,
-            {
-                "type": "battle",
-                "monster": 4
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": [        ]
     },
     "50": {
-        "description": "[5, 0] 으스스하다",
+        "description": "신 체육관",
         "x": 5,
         "y": 0,
         "canGo": [0, 1, 1, 1 ],
-        "events": [
-            0.6,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [        ]
     },
 
     "51": {
-        "description": "[5, 1] 예감이 좋다",
+        "description": "행정대학원",
         "x": 5,
         "y": 1,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.12,
-            {
-                "type": "battle",
-                "monster": 3
-            },
-            {
-                "type": "item",
-                "item": 1001
-            }
-        ]
+        "events": [        ]
     },
 
     "52": {
-        "description": "[5, 2] 예감이 좋다",
+        "description": "미대 불가마",
         "x": 5,
         "y": 2,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.22,
-            {
-                "type": "battle",
-                "monster": 2
-            },
-            {
-                "type": "item",
-                "item": 1000
-            }
-        ]
+        "events": [        ]
     },
 
     "53": {
-        "description": "[5, 3] 으스스하다",
+        "description": "미술대학",
         "x": 5,
         "y": 3,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.88,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [        ]
     },
     "54": {
-        "description": "[5, 4] 으스스하다",
+        "description": "인문대 해방터",
         "x": 5,
         "y": 4,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.78,
-            {
-                "type": "battle",
-                "monster": 1
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [        ]
     },
     "55": {
-        "description": "[5, 5] 아무 일도 일어나지 않는다",
+        "description": "공깡",
         "x": 5,
         "y": 5,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "56": {
-        "description": "[5, 6] 아무 일도 일어나지 않는다",
+        "description": "중도터널",
         "x": 5,
         "y": 6,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "57": {
-        "description": "[5, 7] 예감이 좋다",
+        "description": "BBQ 카페",
         "x": 5,
         "y": 7,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.1,
-            {
-                "type": "battle",
-                "monster": 3
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
-        ]
+        "events": [        ]
     },
     "58": {
-        "description": "[5, 8] 예감이 좋다",
+        "description": "봉구스 밥버거",
         "x": 5,
         "y": 8,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.2,
-            {
-                "type": "battle",
-                "monster": 2
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [        ]
     },
     "59": {
-        "description": "[5, 9] 으스스하다",
+        "description": "지하벙커",
         "x": 5,
         "y": 9,
         "canGo": [1, 1, 0, 1 ],
-        "events": [
-            0.75,
-            {
-                "type": "battle",
-                "monster": 3
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": [        ]
     },
     "60": {
-        "description": "[6, 0] 으스스하다",
+        "description": "텝스 연구소",
         "x": 6,
         "y": 0,
         "canGo": [0, 1, 1, 1 ],
-        "events": [
-            0.8,
-            {
-                "type": "battle",
-                "monster": 2
-            },
-            {
-                "type": "item",
-                "item": 1000
-            }
-        ]
+        "events": [        ]
     },
 
     "61": {
-        "description": "[6, 1] 아무 일도 일어나지 않는다",
+        "description": "언어교육원",
         "x": 6,
         "y": 1,
         "canGo": [1, 1, 1, 1 ],
@@ -806,160 +457,80 @@
     },
 
     "62": {
-        "description": "[6, 2] 예감이 좋다",
+        "description": "예술계 식당",
         "x": 6,
         "y": 2,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.3,
-            {
-                "type": "battle",
-                "monster": 4
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
-        ]
+        "events": [        ]
     },
 
     "63": {
-        "description": "[6, 3] 예감이 좋다",
+        "description": "음악대학",
         "x": 6,
         "y": 3,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.15,
-            {
-                "type": "battle",
-                "monster": 1
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
-        ]
+        "events": [        ]
     },
     "64": {
-        "description": "[6, 4] 으스스하다",
+        "description": "인문대학",
         "x": 6,
         "y": 4,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.8,
-            {
-                "type": "battle",
-                "monster": 4
-            },
-            {
-                "type": "item",
-                "item": 1001
-            }
-        ]
+        "events": [        ]
     },
     "65": {
-        "description": "[6, 5] 아무 일도 일어나지 않는다",
+        "description": "사범대학",
         "x": 6,
         "y": 5,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "66": {
-        "description": "[6, 6] 예감이 좋다",
+        "description": "관정관",
         "x": 6,
         "y": 6,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.1,
-            {
-                "type": "battle",
-                "monster": 1
-            },
-            {
-                "type": "item",
-                "item": 1001
-            }
-        ]
+        "events": [        ]
     },
     "67": {
-        "description": "[6, 7] 으스스하다",
+        "description": "테니스장",
         "x": 6,
         "y": 7,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.9,
-            {
-                "type": "battle",
-                "monster": 4
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": [        ]
     },
     "68": {
-        "description": "[6, 8] 아무 일도 일어나지 않는다",
+        "description": "오토바이 주차장",
         "x": 6,
         "y": 8,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "69": {
-        "description": "[6, 9] 으스스하다",
+        "description": "버스 차고지",
         "x": 6,
         "y": 9,
         "canGo": [1, 1, 0, 1 ],
-        "events": [
-            0.9,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
-        ]
+        "events": [        ]
     },
     "70": {
-        "description": "[7, 0] 예감이 좋다",
+        "description": "수의과대학",
         "x": 7,
         "y": 0,
         "canGo": [0, 1, 1, 1 ],
-        "events": [
-            0.11,
-            {
-                "type": "battle",
-                "monster": 1
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
-        ]
+        "events": [        ]
     },
 
     "71": {
-        "description": "[7, 1] 예감이 좋다",
+        "description": "보건대학원",
         "x": 7,
         "y": 1,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.11,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": [        ]
     },
 
     "72": {
-        "description": "[7, 2] 아무 일도 일어나지 않는다",
+        "description": "테니스장",
         "x": 7,
         "y": 2,
         "canGo": [1, 1, 1, 1 ],
@@ -967,86 +538,56 @@
     },
 
     "73": {
-        "description": "[7, 3] 아무 일도 일어나지 않는다",
+        "description": "느티나무",
         "x": 7,
         "y": 3,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "74": {
-        "description": "[7, 4] 아무 일도 일어나지 않는다",
+        "description": "CTL",
         "x": 7,
         "y": 4,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "75": {
-        "description": "[7, 5] 아무 일도 일어나지 않는다",
+        "description": "휴김밥",
         "x": 7,
         "y": 5,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "76": {
-        "description": "[7, 6] 아무 일도 일어나지 않는다",
+        "description": "관정 뒷길",
         "x": 7,
         "y": 6,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "77": {
-        "description": "[7, 7] 으스스하다",
+        "description": "약대",
         "x": 7,
         "y": 7,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.8,
-            {
-                "type": "battle",
-                "monster": 2
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [        ]
     },
     "78": {
-        "description": "[7, 8] 예감이 좋다",
+        "description": "공대 오르막",
         "x": 7,
         "y": 8,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.15,
-            {
-                "type": "battle",
-                "monster": 3
-            },
-            {
-                "type": "item",
-                "item": 1000
-            }
-        ]
+        "events": [        ]
     },
     "79": {
-        "description": "[7, 9] 으스스하다",
+        "description": "공대 주차장",
         "x": 7,
         "y": 9,
         "canGo": [1, 1, 0, 1 ],
-        "events": [
-            0.9,
-            {
-                "type": "battle",
-                "monster": 1
-            },
-            {
-                "type": "item",
-                "item": 1001
-            }
-        ]
+        "events": [        ]
     },
     "80": {
-        "description": "[8, 0] 아무 일도 일어나지 않는다",
+        "description": "수의대 식당",
         "x": 8,
         "y": 0,
         "canGo": [0, 1, 1, 1 ],
@@ -1054,7 +595,7 @@
     },
 
     "81": {
-        "description": "[8, 1] 아무 일도 일어나지 않는다",
+        "description": "국제대학원",
         "x": 8,
         "y": 1,
         "canGo": [1, 1, 1, 1 ],
@@ -1062,124 +603,64 @@
     },
 
     "82": {
-        "description": "[8, 2] 으스스하다",
+        "description": "생활과학대학",
         "x": 8,
         "y": 2,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.7,
-            {
-                "type": "battle",
-                "monster": 1
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": [        ]
     },
 
     "83": {
-        "description": "[8, 3] 예감이 좋다",
+        "description": "동원관",
         "x": 8,
         "y": 3,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.2,
-            {
-                "type": "battle",
-                "monster": 4
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [        ]
     },
     "84": {
-        "description": "[8, 4] 예감이 좋다",
+        "description": "파스쿠찌",
         "x": 8,
         "y": 4,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.1,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 1001
-            }
-        ]
+        "events": [        ]
     },
     "85": {
-        "description": "[8, 5] 아무 일도 일어나지 않는다",
+        "description": "버들골",
         "x": 8,
         "y": 5,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "86": {
-        "description": "[8, 6] 아무 일도 일어나지 않는다",
+        "description": "롯데리아",
         "x": 8,
         "y": 6,
         "canGo": [1, 1, 1, 1 ],
         "events": []
     },
     "87": {
-        "description": "[8, 7] 으스스하다",
+        "description": "ROTC",
         "x": 8,
         "y": 7,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.9,
-            {
-                "type": "battle",
-                "monster": 1
-            },
-            {
-                "type": "item",
-                "item": 1
-            }
-        ]
+        "events": [        ]
     },
     "88": {
-        "description": "[8, 8] 예감이 좋다",
+        "description": "300동",
         "x": 8,
         "y": 8,
         "canGo": [1, 1, 1, 1 ],
-        "events": [
-            0.2,
-            {
-                "type": "battle",
-                "monster": 2
-            },
-            {
-                "type": "item",
-                "item": 1000
-            }
-        ]
+        "events": [        ]
     },
     "89": {
-        "description": "[8, 9] 으스스하다",
+        "description": "302동",
         "x": 8,
         "y": 9,
         "canGo": [1, 1, 0, 1 ],
-        "events": [
-            0.7,
-            {
-                "type": "battle",
-                "monster": 3
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": [        ]
     },
     "90": {
-        "description": "[9, 0] 아무 일도 일어나지 않는다",
+        "description": "서울대 후문",
         "x": 9,
         "y": 0,
         "canGo": [0, 0, 1, 1 ],
@@ -1187,25 +668,15 @@
     },
 
     "91": {
-        "description": "[9, 1] 예감이 좋다",
+        "description": "인헌아파트",
         "x": 9,
         "y": 1,
         "canGo": [1, 0, 1, 1 ],
-        "events": [
-            0.1,
-            {
-                "type": "battle",
-                "monster": 1
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [        ]
     },
 
     "92": {
-        "description": "[9, 2] 아무 일도 일어나지 않는다",
+        "description": "기숙사 운동장",
         "x": 9,
         "y": 2,
         "canGo": [1, 0, 1, 1 ],
@@ -1213,93 +684,52 @@
     },
 
     "93": {
-        "description": "[9, 3] 으스스하다",
+        "description": "관악사",
         "x": 9,
         "y": 3,
         "canGo": [1, 0, 1, 1 ],
-        "events": [
-            0.8,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 1001
-            }
-        ]
+        "events": [        ]
     },
     "94": {
-        "description": "[9, 4] 예감이 좋다",
+        "description": "긱삼",
         "x": 9,
         "y": 4,
         "canGo": [1, 0, 1, 1 ],
-        "events": [
-            0.15,
-            {
-                "type": "battle",
-                "monster": 5
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [        ]
     },
     "95": {
-        "description": "[9, 5] 아무 일도 일어나지 않는다",
+        "description": "풍산마당",
         "x": 9,
         "y": 5,
         "canGo": [1, 0, 1, 1 ],
         "events": []
     },
     "96": {
-        "description": "[9, 6] 으스스하다",
+        "description": "천문대 기상관측소",
         "x": 9,
         "y": 6,
         "canGo": [1, 0, 1, 1 ],
-        "events": [
-            0.7,
-            {
-                "type": "battle",
-                "monster": 2
-            },
-            {
-                "type": "item",
-                "item": 2
-            }
-        ]
+        "events": [        ]
     },
     "97": {
-        "description": "[9, 7] 예감이 좋다",
+        "description": "자운암",
         "x": 9,
         "y": 7,
         "canGo": [1, 0, 1, 1 ],
-        "events": [
-            0.2,
-            {
-                "type": "battle",
-                "monster": 3
-            },
-            {
-                "type": "item",
-                "item": 3
-            }
-        ]
+        "events": [  ]
     },
     "98": {
-        "description": "[9, 8] 아무 일도 일어나지 않는다",
+        "description": "★301동★",
         "x": 9,
         "y": 8,
         "canGo": [1, 0, 1, 1 ],
         "events": []
     },
     "99": {
-        "description": "[9, 9] End Point",
+        "description": "관악산",
         "x": 9,
         "y": 9,
         "canGo": [1, 0, 0, 1 ],
         "events": []
     }
-
 }

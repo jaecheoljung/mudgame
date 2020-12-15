@@ -4,8 +4,12 @@ const crypto = require("crypto");
 async function signup(req, res) {
     const { name } = req.body;
     if (await Player.findOne({ name })) {
-      console.log("이미 가입된 아이디입니다.");
       const message = "중복된 name이 있습니다. 새로운 name으로 설정해주세요."
+      return res.send({message});
+    }
+
+    if (name.length<2||name.length>13) {
+      const message = "name의 길이를 3~12 사이로 맞춰주세요."
       return res.send({message});
     }
     

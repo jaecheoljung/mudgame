@@ -20,15 +20,15 @@
     </div>
 
     <div style="margin-top: 10px">
-      <%= gameName %>에 온 걸 환영합니다. 당신의 이름은?
+      <br><h1><b><%= gameName %></b></h1>당신의 이름은? (3-12자)
     </div>
 
     <form id="form" method="POST" action="/signup" style="margin-top: 10px">
       이름: <input name="name" />
       <input type="submit" value="확인" />
     </form>
-
-    <div style="width:400px; text-align: center; margin: auto; margin-top:20px; margin-bottom:20px; border: 1px solid black; padding:10px 0;">
+  
+    <div style="width:400px; text-align: center; margin: auto; margin-top:30px; margin-bottom:20px; border: 1px solid black; padding:10px 0;">
       <h2><b>Ranking</b></h2>
       <div class="rank"><b>순위</b></div><div class="rank_name"><b>유저명</b></div><div class="rank_move"><b>move</b></div>
       <% for(let i = 0; i < rankList.length; i++){ %>

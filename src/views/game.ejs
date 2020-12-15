@@ -13,7 +13,7 @@
     <div class="row justify-content-md-center align-items-center text-center" style="background-color:rgb(0, 0,128);">
       <!-- <div class="row justify-content-md-center align-items-center text-center" style="background-color:darkseagreen;"> -->
       <!-- <h1> -->
-        <h2 style="color: white;">player : <span id="playerName"></span></h2>
+      <h2 style="color: white;">player : <span id="playerName"></span></h2>
       <h1 style="color: white">
         [<span id="title"></span>] 과정을 무사히 끝마치자.
       </h1>
@@ -23,16 +23,17 @@
       <div class="row justify-content-md-center align-items-center text-center">
         <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
         <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
-          [Event]<br>
+          <b>[Event]</b><br>
           <div id="event" style="white-space: pre-line"></div>
         </div>
+
         <div class="col-md-1">
           <button type="button" class="btn btn-success" value="0">N</button>
         </div>
         <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
         <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
-          [Inventory]
-          <div id="inventory" style="white-space:pre-line"></div>
+          <b>[System]</b><br>
+          <div id="system" style="white-space:pre-line"></div>
         </div>
       </div>
       <div class="row justify-content-md-center align-items-center text-center">
@@ -51,7 +52,7 @@
       <div class="row justify-content-md-center align-items-center text-center">
         <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
         <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
-          [Status] <br>
+          <b>[Status]</b><br>
           Level: <span id="LEVEL"> 0</span><br>
           Exp: <span id="EXP"> 0 / 0</span><br>
           HP: <span id="HP"> 5 / 5</span><br>
@@ -62,18 +63,14 @@
           <button type="button" class="btn btn-success" value="2">S</button>
         </div>
         <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
+
         <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
-          [System]<br>
-          <div id="system" style="white-space:pre-line"></div>
+          <b>[Inventory]</b>
+          <div id="inventory" style="white-space:pre-line"></div>
         </div>
       </div>
-
-
     </div>
-
-
   </div>
-
 
 
   <div class="row justify-content-md-center align-items-center text-center" style="background-color: rgb(0, 0,128);">
@@ -132,7 +129,7 @@
         imgary.push('/img7')
         imgary.push('/img8')
         imgary.push('/img9')
-        $('body').css({'background': 'url(' + imgary[mapNum] + ')', 'background-repeat': 'no-repeat', 'background-position': 'center'});
+        $('body').css({ 'background': 'url(' + imgary[mapNum] + ')', 'background-repeat': 'no-repeat', 'background-position': 'center' });
 
         player.status === 0 ? reroll.show() : reroll.hide();
         player.status >= 2 ? hit.show() : hit.hide();
@@ -149,8 +146,6 @@
     reroll.bind('click', function () {
       sendAction('reroll');
     })
-
-
 
     const reset = $('#reset');
     reset.bind('click', function () {
