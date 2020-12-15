@@ -1,3 +1,4 @@
+const { timingSafeEqual } = require("crypto");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -41,7 +42,11 @@ schema.methods.incrementEXP = function (val) {
   if (exp >= this.maxExp) {
     this.level += parseInt(exp / this.maxExp);
     this.maxHP += 20*parseInt(exp / this.maxExp);
-    this.HP += 10*parseInt(exp / this.maxExp);
+    if(this.level===5||this.level===9){
+      this.HP = this.maxHP;
+    }else{
+      this.HP += 10*parseInt(exp / this.maxExp);
+    }
     this.exp = exp % this.maxExp;
     let curmap = this.map
     while (true) {

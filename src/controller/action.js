@@ -3,7 +3,7 @@ const item = require('../datas/items.json');
 const map = require('../datas/maps.json');
 const express = require("express");
 
-const eventProb = [0.05, 0.5, 1]; // nothing, item, battle
+const eventProb = [0.1, 0.45, 1]; // nothing, item, battle
 
 async function action(req, res) {
 
@@ -111,7 +111,8 @@ async function action(req, res) {
 
       if (player.enemy.hp <= 0) {
         event = `적을 무찔렀다.`;
-        system = '';
+        system = '체력이 5만큼 회복되었다.';
+        player.HP +=5;
         player.incrementEXP(monster.exp[player.stage]);
         player.status = 1;
         if (player.level === 5) {

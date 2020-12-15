@@ -17,6 +17,23 @@
       <h1 style="color: white">
         [<span id="title"></span>] 과정을 무사히 끝마치자.
       </h1>
+      <div class="col-lg-3" style="color: white">
+        <h3>[ Total move : <span id="move"></span> ]</h3>
+      </div>
+    </div>
+    <div class="row justify-content-md-center align-items-center text-center" style="background-color: rgb(0, 0,128); padding-top:8px; padding-bottom:15px">
+      <!-- <div class="row justify-content-md-center align-items-center text-center" style="background-color:darkseagreen;"> -->
+      <!-- <div class="col-lg-3"> -->
+     
+      <div class="col-md-2">
+        <button class="btn btn-info" id="reroll">능력치재설정</button>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-warning " id="hit">공격하기</button>
+      </div>
+      <div class="col-lg-2">
+        <button class="btn btn-danger" id="reset">Go to Main</button>
+      </div>
     </div>
 
     <div>
@@ -64,7 +81,7 @@
         </div>
         <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
 
-        <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
+        <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222); overflow: auto;">
           <b>[Inventory]</b>
           <div id="inventory" style="white-space:pre-line"></div>
         </div>
@@ -73,22 +90,7 @@
   </div>
 
 
-  <div class="row justify-content-md-center align-items-center text-center" style="background-color: rgb(0, 0,128);">
-    <!-- <div class="row justify-content-md-center align-items-center text-center" style="background-color:darkseagreen;"> -->
-    <!-- <div class="col-lg-3"> -->
-    <div class="col-lg-3" style="color: white">
-      <h3>[Total move : <span id="move"></span> ]</h3>
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-secondary" id="reroll">능력치재설정</button>
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-secondary" id="hit">공격하기</button>
-    </div>
-    <div class="col-lg-2">
-      <button class="btn btn-danger" id="reset">Go to front</button>
-    </div>
-  </div>
+ 
   </div>
   <button id="music">음악 재생</button>
   <script>
