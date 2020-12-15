@@ -14,8 +14,7 @@ async function action(req, res) {
 
   /**** 발표용 ****/
   if (action === "cheat") {
-    player.level += 1;
-    player.status = 1;
+    player.incrementEXP(100);
     if (player.level === 5) {
       player.stage = 1;
     }

@@ -139,7 +139,11 @@
 
         for (let i of [0, 1, 2, 3]) {
           const go = $(`button[value="${i}"]`);
-          player.status === 3 ? go.hide() : go.show();
+          if(player.status === 3 || player.status === -1){
+            go.hide();
+          }else{
+            go.show();
+          }
         }
       });
     }
