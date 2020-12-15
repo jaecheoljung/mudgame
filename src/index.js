@@ -28,12 +28,18 @@ app.get("/img", (req, res) => {
   fs.readFile('./img/main.png', (error, data) => {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end(data);
-  })
+  });
 })
 
 app.get("/img1", (req, res) => {
   fs.readFile('./img/snu.jpg', (error, data) => {
     res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
+app.get("/music", (req, res) => {
+  fs.readFile('./music/AcientForest.mp3', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'audio/mp3'});
     res.end(data);
   })
 })
