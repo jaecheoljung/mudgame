@@ -31,8 +31,64 @@ app.get("/img", (req, res) => {
   })
 })
 
-app.get("/bgimg", (req, res) => {
+app.get("/img1", (req, res) => {
   fs.readFile('./img/snu.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
+
+app.get("/img2", (req, res) => {
+  fs.readFile('./img/도서관.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
+
+app.get("/img3", (req, res) => {
+  fs.readFile('./img/농대.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
+
+app.get("/img4", (req, res) => {
+  fs.readFile('./img/윗공대.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
+
+app.get("/img5", (req, res) => {
+  fs.readFile('./img/사회대.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
+
+app.get("/img6", (req, res) => {
+  fs.readFile('./img/느티나무.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
+
+app.get("/img7", (req, res) => {
+  fs.readFile('./img/인문대.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
+
+app.get("/img8", (req, res) => {
+  fs.readFile('./img/자하연.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+})
+
+app.get("/img9", (req, res) => {
+  fs.readFile('./img/학생회관.jpg', (error, data) => {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end(data);
   })

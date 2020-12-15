@@ -18,80 +18,53 @@
       </h1>
     </div>
 
-
     <div>
-      <style>
-        body{
-          width: 100%;
-          height: 100%;
-          /* text-align: center; */
-          position: relative;
-          z-index: 1;
-        }
-        body::after{
-          width: 100%;
-          height: 100%;
-          content:"";
-          background: url('/bgimg');
-          background-position: center;
-          background-repeat: no-repeat;
-          position: absolute;
-          top: -100;
-          left: 0;
-          background-size: 60% 100%;
-          opacity: 0.3!important;
-          z-index:-1;
-        }
-      </style>
-      <!-- <img src="/bgimg" width=auto height=auto/> -->
-
-
-    <div class="row justify-content-md-center align-items-center text-center">
-      <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
-      <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
-        [Event]<br>
-        <div id="event" style="white-space: pre-line"></div>
-      </div>
-      <div class="col-md-1">
-        <button type="button" class="btn btn-success" value="0">N</button>
-      </div>
-      <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
-      <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
-        [Inventory]
-        <div id="inventory" style="white-space:pre-line"></div>
-      </div>
-    </div>
-    <div class="row justify-content-md-center align-items-center text-center">
-      <div class="col-md-1">
-        <button type="button" class="btn btn-success" value="3">W</button>
-      </div>
-      <div class="col-md-auto">
-        <div id="minimap" style="white-space: pre-line; border: 1px solid black; display:inline-block; padding : 10px;">
+      <div class="row justify-content-md-center align-items-center text-center">
+        <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
+        <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
+          [Event]<br>
+          <div id="event" style="white-space: pre-line"></div>
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-success" value="0">N</button>
+        </div>
+        <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
+        <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
+          [Inventory]
+          <div id="inventory" style="white-space:pre-line"></div>
         </div>
       </div>
-      <div class="col-md-1">
-        <button type="button" class="btn btn-success" value="1">E</button>
+      <div class="row justify-content-md-center align-items-center text-center">
+        <div class="col-md-1">
+          <button type="button" class="btn btn-success" value="3">W</button>
+        </div>
+        <div class="col-md-auto">
+          <div id="minimap" style="white-space: pre-line; border: 1px solid black; display:inline-block; padding : 10px;">
+          </div>
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-success" value="1">E</button>
+        </div>
       </div>
-    </div>
-    <div class="row justify-content-md-center align-items-center text-center">
-      <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
-      <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
-        [Status] <br>
-        Level: <span id="LEVEL"> 0</span><br>
-        Exp: <span id="EXP"> 0 / 0</span><br>
-        HP: <span id="HP"> 5 / 5</span><br>
-        STR: <span id="STR"> 0</span><br>
-        INT: <span id="INT"> 0</span>
+      <div class="row justify-content-md-center align-items-center text-center">
+        <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
+        <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
+          [Status] <br>
+          Level: <span id="LEVEL"> 0</span><br>
+          Exp: <span id="EXP"> 0 / 0</span><br>
+          HP: <span id="HP"> 5 / 5</span><br>
+          STR: <span id="STR"> 0</span><br>
+          INT: <span id="INT"> 0</span>
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-success" value="2">S</button>
+        </div>
+        <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
+        <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
+          [System]<br>
+          <div id="system" style="white-space:pre-line"></div>
+        </div>
       </div>
-      <div class="col-md-1">
-        <button type="button" class="btn btn-success" value="2">S</button>
-      </div>
-      <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
-      <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
-        [System]<br>
-        <div id="system" style="white-space:pre-line"></div>
-      </div>
-    </div>
 
 
     </div>
@@ -130,7 +103,7 @@
         method: "POST",
         data: `action=${action}&direction=${params.direction}`,
       }).done((req) => {
-        const { player, minimap, inventory, event, system } = req;
+        const { player, minimap, inventory, event, system, map } = req;
         const playerDegree = player.stage < 1 ? "학부" : (player.stage < 2 ? "석사" : "박사");
 
         $('#title').text(playerDegree);
@@ -144,6 +117,19 @@
         $('#STR').text(player.str);
         $('#INT').text(player.int);
         $('#move').text(player.move);
+
+        let mapNum = player.map
+        let imgary = new Array();
+        imgary.push('/img1')
+        imgary.push('/img2')
+        imgary.push('/img3')
+        imgary.push('/img4')
+        imgary.push('/img5')
+        imgary.push('/img6')
+        imgary.push('/img7')
+        imgary.push('/img8')
+        imgary.push('/img9')
+        $('body').css({'background': 'url(' + imgary[mapNum] + ')', 'background-repeat': 'no-repeat', 'background-position': 'center'});
 
         player.status === 0 ? reroll.show() : reroll.hide();
         player.status >= 2 ? hit.show() : hit.hide();
