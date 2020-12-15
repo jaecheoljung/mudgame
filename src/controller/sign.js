@@ -8,7 +8,7 @@ async function signup(req, res) {
       return res.send({message});
     }
 
-    if (name.length<2||name.length>13) {
+    if (name.length<3||name.length>12) {
       const message = "name의 길이를 3~12 사이로 맞춰주세요."
       return res.send({message});
     }

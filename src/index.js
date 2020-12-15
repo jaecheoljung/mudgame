@@ -25,78 +25,9 @@ app.get("/", async (req, res) => {
   res.render("index", { gameName: constantManager.gameName, rankList: await ranking()});
 });
 
-app.get("/img", (req, res) => {
-  fs.readFile('./img/main.png', (error, data) => {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(data);
-  });
-})
-
-app.get("/img1", (req, res) => {
-  fs.readFile('./img/snu.jpg', (error, data) => {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(data);
-  })
-})
 app.get("/music", (req, res) => {
   fs.readFile('./music/AcientForest.mp3', (error, data) => {
     res.writeHead(200, {'Content-Type': 'audio/mp3'});
-    res.end(data);
-  })
-})
-
-app.get("/img2", (req, res) => {
-  fs.readFile('./img/도서관.jpg', (error, data) => {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(data);
-  })
-})
-
-app.get("/img3", (req, res) => {
-  fs.readFile('./img/농대.jpg', (error, data) => {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(data);
-  })
-})
-
-app.get("/img4", (req, res) => {
-  fs.readFile('./img/윗공대.jpg', (error, data) => {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(data);
-  })
-})
-
-app.get("/img5", (req, res) => {
-  fs.readFile('./img/사회대.jpg', (error, data) => {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(data);
-  })
-})
-
-app.get("/img6", (req, res) => {
-  fs.readFile('./img/느티나무.jpg', (error, data) => {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(data);
-  })
-})
-
-app.get("/img7", (req, res) => {
-  fs.readFile('./img/인문대.jpg', (error, data) => {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(data);
-  })
-})
-
-app.get("/img8", (req, res) => {
-  fs.readFile('./img/자하연.jpg', (error, data) => {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(data);
-  })
-})
-
-app.get("/img9", (req, res) => {
-  fs.readFile('./img/학생회관.jpg', (error, data) => {
-    res.writeHead(200, {'Content-Type': 'text/html'});
     res.end(data);
   })
 })
@@ -118,3 +49,100 @@ app.listen(3000, () => {
   console.log(`listening at http://localhost:3000`); // 정상 시작 알림
 })
 
+app.get("/img", (req, res) => {
+  fs.readFile('./img/main.png', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  });
+});
+
+app.get("/img1", (req, res) => {
+  fs.readFile('./img/1.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img2", (req, res) => {
+  fs.readFile('./img/2.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img3", (req, res) => {
+  fs.readFile('./img/3.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img4", (req, res) => {
+  fs.readFile('./img/4.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img5", (req, res) => {
+  fs.readFile('./img/5.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img6", (req, res) => {
+  fs.readFile('./img/6.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img7", (req, res) => {
+  fs.readFile('./img/7.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img8", (req, res) => {
+  fs.readFile('./img/8.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img9", (req, res) => {
+  fs.readFile('./img/9.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img10", (req, res) => {
+  fs.readFile('./img/10.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img11", (req, res) => {
+  fs.readFile('./img/11.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img12", (req, res) => {
+  fs.readFile('./img/12.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
+
+app.get("/img13", (req, res) => {
+  fs.readFile('./img/13.jpg', (error, data) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(data);
+  })
+});
