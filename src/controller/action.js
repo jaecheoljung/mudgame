@@ -12,6 +12,25 @@ async function action(req, res) {
   const mapNum = player.x * 10 + player.y;
   let event = '', system = '[현재 위치]\n'+map[mapNum].description;
 
+  /**** 발표용 ****/
+  if (action === "cheat") {
+    player.level += 1;
+    player.status = 1;
+    if (player.level === 5) {
+      player.stage = 1;
+    }
+    if (player.level === 9) {
+      player.stage = 2;
+    }
+    if (player.level === 13) {
+      player.status = -1;
+      event = '졸업을 축하합니다.';
+      system = '게임 종료.';
+    }
+    await player.save();
+    return res.send(_draw(player, event, system));
+  }
+
   if (action === "reroll") {
     player.str = Math.floor(Math.random() * 5);
     player.int = Math.floor(Math.random() * 5);
