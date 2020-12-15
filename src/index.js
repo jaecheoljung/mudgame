@@ -21,9 +21,10 @@ mongoose.connect( mongoURI, { useNewUrlParser: true, useUnifiedTopology: true } 
     .catch(e => console.error(e));
 
 
-    //랭킹표 추가?
-app.get("/", (req, res) => {
-  res.render("index", { gameName: constantManager.gameName});
+const { ranking } = require("./controller/ranking");
+
+app.get("/", async (req, res) => {
+  res.render("index", { gameName: constantManager.gameName, rankList: await ranking()});
 });
 
 app.get("/img", (req, res) => {

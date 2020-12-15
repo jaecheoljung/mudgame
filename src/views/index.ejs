@@ -22,6 +22,15 @@
       이름: <input name="name" />
       <input type="submit" value="확인" />
     </form>
+
+    <div>
+      <ol>
+      <% for(let i = 0; i < rankList.length; i++){ %>
+        <li><%= rankList[i].name %> : <%= rankList[i].move %></li>  
+      <% } %>
+      </ol>
+    </div>
+
     <script>
 
       const key = localStorage.getItem('_key');
