@@ -134,7 +134,7 @@
         imgary.push('/img11')
         imgary.push('/img12')
         imgary.push('/img13')
-        $('body').css({ 'background': 'url(' + imgary[player.level-1] + ')', 'background-repeat': 'no-repeat', 'background-position': 'center' });
+        $('body').css({ 'background': 'url(' + imgary[player.level-1] + ')', 'background-repeat': 'no-repeat', 'background-position': '50% 75%'});
 
         player.status === 0 ? reroll.show() : reroll.hide();
         player.status >= 2 ? hit.show() : hit.hide();
