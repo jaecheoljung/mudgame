@@ -25,13 +25,13 @@
       <!-- <div class="row justify-content-md-center align-items-center text-center" style="background-color:darkseagreen;"> -->
       <!-- <div class="col-lg-3"> -->
      
-      <div class="col-md-2">
+      <div class="col-md-2" style="width: 240px;">
         <button class="btn btn-info" id="reroll">능력치재설정</button>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2" style="width: 240px;">
         <button class="btn btn-warning " id="hit">공격하기</button>
       </div>
-      <div class="col-lg-2">
+      <div class="col-lg-2" style="width: 240px;">
         <button class="btn btn-danger" id="reset">Go to Main</button>
       </div>
     </div>
@@ -39,7 +39,7 @@
     <div>
       <div class="row justify-content-md-center align-items-center text-center">
         <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
-        <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
+        <div class="col-lg-2" style="height: 10em; width: 350px; background-color: rgb(245, 241, 222);">
           <b>[Event]</b><br>
           <div id="event" style="white-space: pre-line"></div>
         </div>
@@ -48,7 +48,7 @@
           <button type="button" class="btn btn-success" value="0">N</button>
         </div>
         <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
-        <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
+        <div class="col-lg-2" style="height: 10em; width: 350px; background-color: rgb(245, 241, 222);">
           <b>[System]</b><br>
           <div id="system" style="white-space:pre-line"></div>
         </div>
@@ -68,7 +68,7 @@
       </div>
       <div class="row justify-content-md-center align-items-center text-center">
         <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
-        <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222);">
+        <div class="col-lg-2" style="height: 10em; width: 350px; background-color: rgb(245, 241, 222);">
           <b>[Status]</b><br>
           Level: <span id="LEVEL"> 0</span><br>
           Exp: <span id="EXP"> 0 / 0</span><br>
@@ -81,7 +81,7 @@
         </div>
         <!-- <div class="col-lg-2" style="height: 10em; background-color: burlywood;"> -->
 
-        <div class="col-lg-2" style="height: 10em; background-color: rgb(245, 241, 222); overflow: auto;">
+        <div class="col-lg-2" style="height: 10em; width: 350px; background-color: rgb(245, 241, 222); overflow: auto;">
           <b>[Inventory]</b>
           <div id="inventory" style="white-space:pre-line"></div>
         </div>
@@ -131,7 +131,8 @@
         imgary.push('/img7')
         imgary.push('/img8')
         imgary.push('/img9')
-        $('body').css({ 'background': 'url(' + imgary[mapNum] + ')', 'background-repeat': 'no-repeat', 'background-position': 'center' });
+        $('body').css({ 'background': 'url(' + imgary[mapNum] + ')', 
+        'background-size':'66.375em','background-repeat': 'no-repeat', 'background-position': 'center' });
 
         player.status === 0 ? reroll.show() : reroll.hide();
         player.status >= 2 ? hit.show() : hit.hide();

@@ -45,7 +45,7 @@ async function action(req, res) {
 
   if (action === "query") {
     if (player.status === 0) {
-      event = '모험 시작! 능력치를 5번 까지 재설정 할 수 있다.';
+      event = '모험 시작! \n능력치를 5번 까지 재설정 할 수 있다.';
     }
     if (player.status === 2) {
       event = '적을 만났다.'
