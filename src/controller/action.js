@@ -157,22 +157,28 @@ async function action(req, res) {
 
         player.HP = player.maxHP / 2;
         player.exp = 0;
-
-        const removeItemIndex = Math.floor(Math.random() * player.items.length);
-        const removedId = player.itemIds[removeItemIndex];
-        const removedItem = player.items[removeItemIndex];
-        const removedStatus = item[removedId].name.indexOf(removedItem);
-        const removedStr = item[removedId].str[removedStatus];
-        const removedInt = item[removedId].int[removedStatus];
-
-        player.items.splice(removeItemIndex, 1);
-        player.itemIds.splice(removeItemIndex, 1);
-        player.str -= removedStr;
-        player.int -= removedInt;
         player.x = 0;
         player.y = 0;
         player.status = 1;
-        system = `경험치가 초기화 되었다.\n체력을 50% 회복했다.\n위치가 원점으로 돌아간다.\n ${removedItem}을(를) 잃었다.\n str ${removedStr}, int ${removedInt}만큼 줄었다.`
+
+        if(player.items.length!==0){
+          const removeItemIndex = Math.floor(Math.random() * player.items.length);
+          const removedId = player.itemIds[removeItemIndex];
+          const removedItem = player.items[removeItemIndex];
+          const removedStatus = item[removedId].name.indexOf(removedItem);
+          const removedStr = item[removedId].str[removedStatus];
+          const removedInt = item[removedId].int[removedStatus];
+
+          player.items.splice(removeItemIndex, 1);
+          player.itemIds.splice(removeItemIndex, 1);
+          player.str -= removedStr;
+          player.int -= removedInt;
+          
+          system = `경험치가 초기화 되었다.\n체력을 50% 회복했다.\n위치가 원점으로 돌아간다.\n ${removedItem}을(를) 잃었다.\n str ${removedStr}, int ${removedInt}만큼 줄었다.`
+        }else{
+          system = '경험치가 초기화 되었다.\n체력을 50% 회복했다.\n위치가 원점으로 돌아간다.\n보유한 아이템이 없어\n 아무것도 잃지 않았다.';
+        }
+        
       }
     }
     await player.save();
