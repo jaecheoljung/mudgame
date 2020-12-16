@@ -120,20 +120,6 @@
         $('#move').text(player.move);
         $('#playerName').text(player.name);
 
-        let imgary = new Array();
-        imgary.push('/img1')
-        imgary.push('/img2')
-        imgary.push('/img3')
-        imgary.push('/img4')
-        imgary.push('/img5')
-        imgary.push('/img6')
-        imgary.push('/img7')
-        imgary.push('/img8')
-        imgary.push('/img9')
-        imgary.push('/img10')
-        imgary.push('/img11')
-        imgary.push('/img12')
-        imgary.push('/img13')
         $('body').css({ 'background': 'url(' + imgary[player.level-1] + ')', 'background-size':'66.375em', 'background-repeat': 'no-repeat', 'background-position': 'center'});
 
         player.status === 0 ? reroll.show() : reroll.hide();
@@ -153,6 +139,21 @@
       });
     }
 
+    let imgary = new Array();
+        imgary.push('/img1')
+        imgary.push('/img2')
+        imgary.push('/img3')
+        imgary.push('/img4')
+        imgary.push('/img5')
+        imgary.push('/img6')
+        imgary.push('/img7')
+        imgary.push('/img8')
+        imgary.push('/img9')
+        imgary.push('/img10')
+        imgary.push('/img11')
+        imgary.push('/img12')
+        imgary.push('/img13')
+        
     const reroll = $('#reroll');
     reroll.bind('click', function () {
       sendAction('reroll');

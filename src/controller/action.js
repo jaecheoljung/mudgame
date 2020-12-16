@@ -106,6 +106,9 @@ async function action(req, res) {
   }
 
   if (action === 'hit') {
+    if (player.status === 1) {
+      return res.send(_draw(player));
+    }
     player.status = 3;
 
     const monster = monsterManager.get(player.enemy.name);
