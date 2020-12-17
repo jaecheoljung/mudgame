@@ -184,6 +184,7 @@
     music.bind('click', function () {
       const audio = new Audio('/music');
       audio.loop = true;
+      audio.volume = 0.1;
       audio.play();
     })
 
